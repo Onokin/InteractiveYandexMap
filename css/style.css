@@ -1,0 +1,204 @@
+
+html,
+body,
+#map {
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	margin: 0;
+	overflow: hidden;
+}
+img {
+	width: 100px;
+	height: 100px;
+}
+
+#my-listbox {
+	top: auto;
+	left: auto;
+	cursor: pointer;
+}
+
+.map-radio {
+	position: absolute;
+	z-index: 9999;
+	top: 45px;
+	left: 42px;
+	font-size: 16px;
+	background-color: #fff;
+	padding: 5px 7px 0 7px;
+	border-radius: 3px;
+	box-shadow: 0 1px 2px 1px rgba(0, 0, 0, .15), 0 2px 5px -3px rgba(0, 0, 0, .15);
+}
+
+.map-radio label input {
+	margin-top: -2px;
+}
+
+#info {
+	position: absolute;
+	width: 300px;
+	background-color: #fff;
+	z-index: 999;
+	right: -300px;
+	box-shadow: 0 1px 2px 1px rgba(0, 0, 0, .15), 0 2px 5px -3px rgba(0, 0, 0, .15);
+	overflow: auto;
+}
+
+.book {
+	background-size: cover;
+	background-image: url('../img/marker/5.png');
+	height: 250px;
+	width: 300px;
+	padding: 15px;
+}
+
+.bookDDU {
+	background-size: cover;
+	background-image: url('../img/marker/6.png');
+	height: 320px;
+	width: 320px;
+	padding: 15px;
+}
+
+.control {
+	overflow: auto;
+	margin-bottom: 5px;
+}
+
+*/ #info-close {
+	display: block;
+	border: 1px solid #666666;
+	text-align: center;
+	width: 35px;
+	cursor: pointer;
+	float: right;
+	color: #666666;
+}
+
+#info-close i {
+	font-size: 32px;
+}
+
+.leninskij,
+.centralnyj,
+.frunzenskij,
+.moskovskij,
+.oktyabrskij,
+.partizanskij,
+.pervomajskij,
+.sovetskij,
+.zavodskoj {
+	padding: 15px;
+}
+
+.zagolovok {
+	line-height: 30px;
+}
+
+.bx-wrapper {
+	margin: 10px auto;
+	width: 180px;
+}
+
+.leftBlock {
+	padding-left: 25px;
+	text-indent: -25px;
+	width: 150px;
+	background-color: #666;
+	color: red;
+}
+
+.leftBlock input {
+	width: 20px;
+	background-color: black;
+
+}
+
+/* Responsive */
+/* --------------------------------------- */
+.responsive-iframe,
+.responsive-video,
+.responsive-object,
+.responsive-embed {
+	position: relative;
+	width: 100%;
+	padding-top: 56.25%;
+	background-color: #000;
+}
+
+.responsive-image img {
+	width: 100%;
+}
+
+.responsive-iframe iframe,
+.responsive-video video,
+.responsive-object object,
+.responsive-embed embed {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	min-height: 100%;
+	height: auto;
+}
+
+/* --------------------------------------- */
+
+/* Aspect Ratio */
+/* --------------------------------------- */
+.aspect-raito {
+	position: relative;
+	width: 100%;
+	padding-top: 56.25%;
+	overflow: hidden;
+}
+
+.aspect-raito img {
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+}
+
+.w1-h1 {
+	padding-top: 100%;
+	/* 1:1 Aspect Ratio */
+}
+
+.w3-h2 {
+	padding-top: 66.66%;
+	/* 3:2 Aspect Ratio */
+}
+
+.w4-h3 {
+	padding-top: 75%;
+	/* 4:3 Aspect Ratio */
+}
+
+.w8-h5 {
+	padding-top: 62.5%;
+	/* 8:5 Aspect Ratio */
+}
+
+.w16-h9 {
+	padding-top: 56.25%;
+	/* 16:9 Aspect Ratio */
+}
+
+.w16-h10 {
+	padding-top: 62.5%;
+	/* 16:10 Aspect Ratio */
+}
+
+/* --------------------------------------- */
+
+/* Cover */
+/* --------------------------------------- */
+/*.cover {
+    height: 100%;
+   width:100%
+    object-fit: cover;
+}*/
+/* --------------------------------------- */
