@@ -1,6 +1,6 @@
 ymaps.ready(function () {
 
-	function RadioResetSchools() {
+	function RadioResetPlacemarks() {
 		globalPlacemarkResetSchools();
 	}
 
@@ -8,26 +8,35 @@ ymaps.ready(function () {
 		globalPlacemarkResetChilderen();
 	}
 
-	function RadioBattonChecked(selectedType) {
+	function RadioBattonChecked(selectedType, enabled) {
 		//RadioResetSchools();
 		//RadioResetChildren();
 		//RadioResetRsp();
 
+		if (enabled &&  selectedType != pickType) {
+			ResetPlacemarks(pickRegion);
+			pickType = selectedType;
+			ShowPlacemarks(pickRegion);
+		}
+		else {
+			return;
+		}
+
 		switch (selectedType) {
 			case schoolType.school:
-				console.log(schoolType.school);
+					console.log(schoolType.school);
 				break;
 			case schoolType.preSchool:
-				console.log(schoolType.preSchool);
+					console.log(schoolType.preSchool);
 				break;
 			case schoolType.special:
-				console.log(schoolType.special);
+					console.log(schoolType.special);
 				break;
 			case schoolType.dop:
-				console.log(schoolType.dop);
+					console.log(schoolType.dop);
 				break;
 			case schoolType.regionSub:
-				console.log(schoolType.regionSub);
+					console.log(schoolType.regionSub);
 				break;
 			default:
 				console.log(`err`);
@@ -67,10 +76,24 @@ ymaps.ready(function () {
 	// 	}
 	// }
 
-	$("#radio-school input").on("click", function () { RadioBattonChecked(schoolType.school) });
-	$("#radio-preSchool input").on("click", function () { RadioBattonChecked(schoolType.preSchool) });
-	$("#radio-special input").on("click", function () { RadioBattonChecked(schoolType.special) });
-	$("#radio-dop input").on("click", function () { RadioBattonChecked(schoolType.dop) });
-	$("#radio-regionSub input").on("click", function () { RadioBattonChecked(schoolType.regionSub)});
+
+	//enable preSchool by default
+	$("#radio-preSchool input").prop("checked", true);
+
+	$("#radio-school input").on("click", function () {
+		RadioBattonChecked(schoolType.school, $("#radio-school input:checked").val() == "on" ? true : false)
+	});
+	$("#radio-preSchool input").on("click", function () { 
+		RadioBattonChecked(schoolType.preSchool, $("#radio-preSchool input:checked").val() == "on" ? true : false) 
+	});
+	$("#radio-special input").on("click", function () { 
+		RadioBattonChecked(schoolType.special, $("#radio-special input:checked").val() == "on" ? true : false) 
+	});
+	$("#radio-dop input").on("click", function () { 
+		RadioBattonChecked(schoolType.dop, $("#radio-dop input:checked").val() == "on" ? true : false)
+	});
+	$("#radio-regionSub input").on("click", function () { 
+		RadioBattonChecked(schoolType.regionSub, $("#radio-regionSub input:checked").val() == "on" ? true : false) 
+	});
 
 });

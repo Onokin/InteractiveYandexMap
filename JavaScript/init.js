@@ -3,7 +3,6 @@ pickType = 'preSchool';
 placemarks = {};
 data = {};
 
-
 function loadScript(url, type) {
   var head = document.getElementsByTagName('head')[0];
   var script = document.createElement('script');
@@ -21,9 +20,6 @@ loadScript('javascript/regionName.js', 'text/javascript');
 loadScript('javascript/jsonHandler.js', 'text/javascript');
 loadScript('javascript/radio.js', 'text/javascript');
 loadScript('javascript/listbox.js', 'text/javascript');
-//loadScript('javascript/jsonHandler.js', 'module');
-//loadScript('javascript/resetPlacemarks.js', 'text/javascript');
-//loadScript('javascript/minsk.js', 'text/javascript');
 loadScript('javascript/regions/berezinskiy_region.js', 'text/javascript');
 loadScript('javascript/initYandexMap.js', 'text/javascript').onload = function () {
   loadJSON(function (response) {

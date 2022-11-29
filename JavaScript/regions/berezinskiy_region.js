@@ -34,7 +34,7 @@ ymaps.ready(function () {
             }
         })
         .add('click', function (e) {
-            ShowPlacemarks(regionName.berezinskiy);
+            FocusOnRegion(regionName.berezinskiy);
         });
 });
 

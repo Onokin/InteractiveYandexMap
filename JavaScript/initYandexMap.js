@@ -745,7 +745,7 @@ function initMap() {
 		// map.geoObjects.add(chervenskiyPlacemark18);
 		// map.geoObjects.add(chervenskiyPlacemark19);
 
-		Resetberezinskiy();
+		//Resetberezinskiy();
 		// EventsResetSchoolsborisovsky();
 		// EventsResetSchoolschervenskiy();
 		// EventsResetSchoolsdzerzhinskiy()
