@@ -1,5 +1,49 @@
 
-console.log('out');
+console.log('initMapFile');
+function divideRegion(regData, regName) {
+	console.log('initFunction');
+	console.log(regData);
+	console.log(regData.preSchool);
+	placemarks[regName] = {};
+	console.log(placemarks);
+	Object.keys(schoolType).map(key => schoolType[key]).forEach(type => {
+		placemarks[regName][type] = [];
+		if (regData[type]) {
+			
+			regData[type].forEach(el => {
+				console.log('longitude');
+				console.log(el);
+				console.log(el.Longitude);
+				auxPlacemark = new ymaps.Placemark([el.Longitude, el.Latitude],
+					{
+						hintContent: el.Name,
+						balloonContent: `<a href="${el.WebLink}" target="_blank">${el.Name}</a>`
+					}, {
+					iconLayout: 'default#image',
+					iconImageHref: 'icons/logo.png',
+					iconImageSize: [30, 30],
+					iconImageOffset: [-5, -38],
+					visible: false,
+				}
+				);
+				placemarks[regName][type].push(auxPlacemark);
+				map.geoObjects.add(auxPlacemark);
+			});
+		}
+	});
+	//placemarks[regName][type].push(regData[type]);
+	// new ymaps.Placemark([regData.Longitude, regData.Latitude],
+	// 	{
+	// 		hintContent: regData.Name,
+	// 		balloonContent: `<a href="${regData.WebLink}" target="_blank">${regData.Name}</a>`
+	// 	}, {
+	// 	iconLayout: 'default#image',
+	// 	iconImageHref: 'icons/logo.png',
+	// 	iconImageSize: [30, 30],
+	// 	iconImageOffset: [-5, -38]
+	// });
+}
+
 function initMap() {
 	console.log('init');
 	ymaps.ready(function () {
@@ -11,10 +55,10 @@ function initMap() {
 		});
 
 		map.setCenter(
-            [27.525773, 53.89079],
-            8, 
-			{ duration: 400	}
-        );
+			[27.525773, 53.89079],
+			8,
+			{ duration: 400 }
+		);
 
 		// Создадим элемент управления поиск
 		var searchControl = new ymaps.control.SearchControl({
@@ -29,12 +73,21 @@ function initMap() {
 		map.controls.add(listBox, { float: 'left' });
 		//Инициализация районов --> 
 		map.geoObjects.add(berezinskiy);
-		console.log(berezinskiyPlaceMarks);
-		//map.geoObjects.add(berezinskiyPlaceMarks[0]);
-		berezinskiyPlaceMarks.forEach(element => {
-			map.geoObjects.add(element);
-		});
+		// console.log(berezinskiyPlaceMarks);
+		// //map.geoObjects.add(berezinskiyPlaceMarks[0]);
+		// berezinskiyPlaceMarks['preSchool'].forEach(element => {
+		// 	map.geoObjects.add(element);
+		// });
 
+
+		Object.keys(regionName).map(key => regionName[key]).forEach(regName => {
+			console.log('obj keys');
+			console.log(data);
+			console.log(regName);
+			divideRegion(data[regName], regName);
+		});
+		console.log('here it is');
+		console.log(placemarks);
 		// map.geoObjects.add(borisovskiy);
 		// map.geoObjects.add(vileyskiy);
 		// map.geoObjects.add(volozhinskiy);
@@ -692,7 +745,7 @@ function initMap() {
 		// map.geoObjects.add(chervenskiyPlacemark18);
 		// map.geoObjects.add(chervenskiyPlacemark19);
 
-		EventsResetSchoolsberezinskiy();
+		Resetberezinskiy();
 		// EventsResetSchoolsborisovsky();
 		// EventsResetSchoolschervenskiy();
 		// EventsResetSchoolsdzerzhinskiy()
@@ -717,4 +770,3 @@ function initMap() {
 		// EventsResetSchoolsvolozhinskiy();
 	});
 }
-console.log('out2');

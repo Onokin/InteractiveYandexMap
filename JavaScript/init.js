@@ -1,28 +1,41 @@
 pickRegion = '';
-pickType = '';
+pickType = 'preSchool';
+placemarks = {};
+data = {};
 
 
-function loadScript(url)
-{    
-    var head = document.getElementsByTagName('head')[0];
-    var script = document.createElement('script');
-    script.type = 'text/javascript';
-    script.src = url;
-    head.appendChild(script);
-	return script;
+function loadScript(url, type) {
+  var head = document.getElementsByTagName('head')[0];
+  var script = document.createElement('script');
+  script.type = type;
+  script.src = url;
+  head.appendChild(script);
+  return script;
 }
 
 
 
-loadScript('javascript/events.js');
-loadScript('javascript/radio.js');
-loadScript('javascript/listbox.js');
-//loadScript('javascript/resetPlacemarks.js');
-//loadScript('javascript/minsk.js');
-loadScript('javascript/regions/berezinskiy_region.js');
-loadScript('javascript/initYandexMap.js').onload = function() {
-	initMap();
-  };
+loadScript('javascript/events.js', 'text/javascript');
+loadScript('javascript/schoolType.js', 'text/javascript');
+loadScript('javascript/regionName.js', 'text/javascript');
+loadScript('javascript/jsonHandler.js', 'text/javascript');
+loadScript('javascript/radio.js', 'text/javascript');
+loadScript('javascript/listbox.js', 'text/javascript');
+//loadScript('javascript/jsonHandler.js', 'module');
+//loadScript('javascript/resetPlacemarks.js', 'text/javascript');
+//loadScript('javascript/minsk.js', 'text/javascript');
+loadScript('javascript/regions/berezinskiy_region.js', 'text/javascript');
+loadScript('javascript/initYandexMap.js', 'text/javascript').onload = function () {
+  loadJSON(function (response) {
+    data = JSON.parse(response);
+    console.log(data);
+    initMap();
+
+    console.log(placemarks);
+  });
+};
+
+
 
 //   if(script.readyState) {  // only required for IE <9
 //     script.onreadystatechange = function() {
