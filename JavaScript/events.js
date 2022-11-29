@@ -34,46 +34,16 @@ function globalResetInfo() {
 	$('#info .minsk').css("display", "none");
 }
 
-function globalPlacemarkReset() {
-	//pickRegion = '';
-	//Resetberezinskiy();
-	//ResetPlacemarks(regionName.berezinskiy);
-	// EventsResetSchoolschervenskiy();
-	// EventsResetSchoolsborisovsky();
-	// EventsResetSchoolsdzerzhinskiy();
-	// EventsResetSchoolsjodino();
-	// EventsResetSchoolskletskiy();
-	// EventsResetSchoolskopilskiy();
-	// EventsResetSchoolskrupski();
-	// EventsResetSchoolsminskiy();
-	// EventsResetSchoolslubanski();
-	// EventsResetSchoolslogoyski();
-	// EventsResetSchoolsmolodzechnenskiy();
-	// EventsResetSchoolsmyadzelskiy();
-	// EventsResetSchoolsnesvizhskiy();
-	// EventsResetSchoolspukhovichskiy();
-	// EventsResetSchoolsslutskiy();
-	// EventsResetSchoolssmolevichskiy();
-	// EventsResetSchoolssoligorskiy();
-	// EventsResetSchoolsstarodorozhskiy();
-	// EventsResetSchoolsstolbcovskiy();
-	// EventsResetSchoolsuzdenskiy();
-	// EventsResetSchoolsvileyskiy();
-	// EventsResetSchoolsvolozhinskiy();
-}
-
 function FocusOnRegion(region) {
-	console.log('FocusOnRegion' + region);
-	if (pickRegion != region) {
-		//globalPlacemarkReset();
+	console.log('FocusOnRegion' + region.name);
+	if (pickRegion != region.name) {
 		ResetFocus();
-		pickRegion = region;
-		//map.setCenter([27.61881, 53.89965], 12, { duration: 500	});
-		polygons[region].options.set({ strokeColor: '#666633', fillOpacity: 0.2, strokeStyle: 'solid' });
-		map.setCenter([29.072636, 53.834761], 10, { duration: 400 }).then(function () {
+		pickRegion = region.name;
+		polygons[region.name].options.set({ strokeColor: '#666633', fillOpacity: 0.2, strokeStyle: 'solid' });
+		map.setCenter(region.center, region.zoom, { duration: 400 }).then(function () {
 			ShowPlacemarks();
 		}, this);
-		$(`#info .${region}`).css("display", "block");
+		$(`#info .${region.name}`).css("display", "block");
 		$("#info").animate({ right: '0' });
 	}
 }
@@ -94,6 +64,7 @@ function ShowPlacemarks() {
 		placemarks[pickRegion][pickType].forEach(element => {
 			element.options.set('visible', true);
 		});
+
 	}
 }
 
@@ -106,6 +77,7 @@ function ResetPlacemarks(region) {
 		placemarks[region][pickType].forEach(element => {
 			element.options.set('visible', false);
 		});
+
 	}
 }
 

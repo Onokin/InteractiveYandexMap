@@ -1,5 +1,5 @@
 ymaps.ready(function() {
-	minsk = new ymaps.GeoObject({
+	polygons['minsk'] = new ymaps.GeoObject({
 		geometry: {
 			type: 'Polygon',
 			coordinates: [
@@ -9,7 +9,7 @@ ymaps.ready(function() {
 						]
 		},
 		properties: {
-			hintContent: 'Минск, Беларусь'
+			hintContent: 'Минск, Беларусь (Переход на карту города Минск)'
 		}
 	}, {
 		fillColor: '#000033',
@@ -20,30 +20,19 @@ ymaps.ready(function() {
 		strokeStyle: 'shortdash'
 	});
 	
-	minsk.events
+	polygons['minsk'].events
 		.add('mouseenter', function (e) {
-			if (pick != 'minsk') {
-				minsk.options.set({strokeColor: '#666633', fillOpacity: 0.2, strokeStyle: 'solid'});
+			if (pickRegion != 'minsk') {
+				polygons['minsk'].options.set({strokeColor: '#666633', fillOpacity: 0.2, strokeStyle: 'solid'});
 			}
 		})
 		.add('mouseleave', function (e) {
-			if (pick != 'minsk') {
-				minsk.options.set({strokeColor: '#CC0033', fillOpacity: 0, strokeStyle: 'shortdash'});
+			if (pickRegion != 'minsk') {
+				polygons['minsk'].options.set({strokeColor: '#CC0033', fillOpacity: 0, strokeStyle: 'shortdash'});
 			}
 		})
 		.add('click', function (e) {
-			//window.location.href = 'https://do.minsk.edu.by/do/files/map/index.html';
 			window.open('https://do.minsk.edu.by/do/files/map/index.html');
-			
-			//if (pick != 'minsk') {
-			//	pick = 'minsk';
-			//	//map.setCenter([27.61881, 53.89965], 12, { duration: 500	});
-			//	minsk.options.set({strokeColor: '#666633', fillOpacity: 0.2, strokeStyle: 'solid'});
-//
-//
-			//	$("#info .minsk").css("display", "block");
-			//	$("#info").animate({right: '0'});
-			//}
 		});
 		
 });

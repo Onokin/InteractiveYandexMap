@@ -1,0 +1,209 @@
+{
+    "berezinskiy": {
+        "name": "berezinskiy",
+        "fullName": "Березинский район",
+        "center": [
+            29.072636,
+            53.834761
+        ],
+        "zoom": 10
+    },
+    "borisovskiy": {
+        "name": "borisovskiy",
+        "fullName": "Борисовский район",
+        "center": [
+            28.547355,
+            54.302751
+        ],
+        "zoom": 10
+    },
+    "chervenskiy": {
+        "name": "chervenskiy",
+        "fullName": "Червенский район",
+        "center": [
+            28.456921,
+            53.759927
+        ],
+        "zoom": 10
+    },
+    "dzerzhinskiy": {
+        "name": "dzerzhinskiy",
+        "fullName": "Дзержинский район",
+        "center": [
+            27.129131,
+            53.754721
+        ],
+        "zoom": 10
+    },
+    "jodino": {
+        "name": "jodino",
+        "fullName": "г. Жодино",
+        "center": [
+            28.321572,
+            54.094370
+        ],
+        "zoom": 10
+    },
+    "kletskiy": {
+        "name": "kletskiy",
+        "fullName": "Клецкий район",
+        "center": [
+            26.674879,
+            52.954451
+        ],
+        "zoom": 10
+    },
+    "kopilskiy": {
+        "name": "kopilskiy",
+        "fullName": "Копыльский район",
+        "center": [
+            27.078115,
+            53.114260
+        ],
+        "zoom": 10
+    },
+    "krupski": {
+        "name": "krupski",
+        "fullName": "Крупский район",
+        "center": [
+            29.169546,
+            54.331909
+        ],
+        "zoom": 10
+    },
+    "logoyski": {
+        "name": "logoyski",
+        "fullName": "Логойский район",
+        "center": [
+            27.826618,
+            54.360789
+        ],
+        "zoom": 10
+    },
+    "lubanski": {
+        "name": "lubanski",
+        "fullName": "Любанский район",
+        "center": [
+            28.101674,
+            52.720794
+        ],
+        "zoom": 10
+    },
+    "minskiy": {
+        "name": "minskiy",
+        "fullName": "Минский район",
+        "center": [
+            27.523320,
+            54.002003
+        ],
+        "zoom": 10
+    },
+    "molodzechnenskiy": {
+        "name": "molodzechnenskiy",
+        "fullName": "Молодечненский район",
+        "center": [
+            26.898183,
+            54.243188
+        ],
+        "zoom": 10
+    },
+    "myadzelskiy": {
+        "name": "myadzelskiy",
+        "fullName": "Мядельский район",
+        "center": [
+            26.921233,
+            54.861927
+        ],
+        "zoom": 10
+    },
+    "nesvizhskiy": {
+        "name": "nesvizhskiy",
+        "fullName": "Несвижский район",
+        "center": [
+            26.69192,
+            53.21858
+        ],
+        "zoom": 10
+    },
+    "pukhovichskiy": {
+        "name": "pukhovichskiy",
+        "fullName": "Пуховичский район",
+        "center": [
+            28.029431,
+            53.482359
+        ],
+        "zoom": 10
+    },
+    "slutskiy": {
+        "name": "slutskiy",
+        "fullName": "Слуцкий район",
+        "center": [
+            27.606414,
+            53.078004
+        ],
+        "zoom": 10
+    },
+    "smolevichskiy": {
+        "name": "smolevichskiy",
+        "fullName": "Смолевичский район",
+        "center": [
+            28.166406,
+            53.993751
+        ],
+        "zoom": 10
+    },
+    "soligorskiy": {
+        "name": "soligorskiy",
+        "fullName": "Солигорский район",
+        "center": [
+            27.447628,
+            52.695799
+        ],
+        "zoom": 10
+    },
+    "starodorozhskiy": {
+        "name": "starodorozhskiy",
+        "fullName": "Стародорожский район",
+        "center": [
+            28.235073,
+            53.045443
+        ],
+        "zoom": 10
+    },
+    "stolbcovskiy": {
+        "name": "stolbcovskiy",
+        "fullName": "Столбцовский район",
+        "center": [
+            26.709680,
+            53.600667
+        ],
+        "zoom": 10
+    },
+    "uzdenskiy": {
+        "name": "uzdenskiy",
+        "fullName": "Узденский район",
+        "center": [
+            27.304302,
+            53.433592
+        ],
+        "zoom": 10
+    },
+    "vileyskiy": {
+        "name": "vileyskiy",
+        "fullName": "Вилейский район",
+        "center": [
+            27.112691,
+            54.509978
+        ],
+        "zoom": 10
+    },
+    "volozhinskiy": {
+        "name": "volozhinskiy",
+        "fullName": "Воложинский район",
+        "center": [
+            26.643205,
+            54.014162
+        ],
+        "zoom": 10
+    }
+}

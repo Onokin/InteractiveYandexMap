@@ -262,7 +262,7 @@ ymaps.ready(function() {
             if (item != listBox) {
 				switch (item.data.get('key')) {
 					case 'berezinskiy':
-						ShowBerezenskiy();
+						FocusOnRegion(regionInfo.berezinskiy.name);
 						break;
 						
 					case 'borisovskiy':

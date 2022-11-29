@@ -1,5 +1,5 @@
 ymaps.ready(function () {
-    berezinskiy = new ymaps.GeoObject({
+    polygons[regionInfo.berezinskiy.name] = new ymaps.GeoObject({
         geometry: {
             type: 'Polygon',
             coordinates: [
@@ -20,21 +20,19 @@ ymaps.ready(function () {
         strokeStyle: 'shortdash'
     });
 
-    polygons[regionName.berezinskiy] = berezinskiy;
-
-    polygons[regionName.berezinskiy].events
+    polygons[regionInfo.berezinskiy.name].events
         .add('mouseenter', function (e) {
-            if (pickRegion != regionName.berezinskiy) {
-                polygons[regionName.berezinskiy].options.set({ strokeColor: '#666633', fillOpacity: 0.2, strokeStyle: 'solid' });
+            if (pickRegion != regionInfo.berezinskiy.name) {
+                polygons[regionInfo.berezinskiy.name].options.set({ strokeColor: '#666633', fillOpacity: 0.2, strokeStyle: 'solid' });
             }
         })
         .add('mouseleave', function (e) {
-            if (pickRegion != regionName.berezinskiy) {
-                ResetPolygon(regionName.berezinskiy);
+            if (pickRegion != regionInfo.berezinskiy.name) {
+                ResetPolygon(regionInfo.berezinskiy.name);
             }
         })
         .add('click', function (e) {
-            FocusOnRegion(regionName.berezinskiy);
+            FocusOnRegion(regionInfo.berezinskiy);
         });
 });
 

@@ -1,0 +1,49 @@
+{
+    "berezinskiy": {
+        "preSchool": [
+            {
+                "Name": "Examle berez preSchool 1",
+                "Longitude": "28.987556",
+                "Latitude": "53.831955",
+                "WebLink": "https://json.org/example.html"
+            },
+            {
+                "Name": "Examle berez preSchool 2",
+                "Longitude: ": "28.829677",
+                "Latitude: ": "53.700383",
+                "WebLink": "https://json.org/example.html"
+            }
+        ],
+        "school": [
+            {
+                "Name": "Examle berez school 1",
+                "Longitude": "28.997556",
+                "Latitude": "53.831955",
+                "WebLink": "https://json.org/example.html"
+            },
+            {
+                "Name": "Examle berez school 2",
+                "Longitude": "28.839677",
+                "Latitude": "53.700383",
+                "WebLink": "https://json.org/example.html"
+            }
+        ]
+    },
+    "borisovskiy": {
+        "preSchool": [
+            {
+                "Name": "Examle boris 1",
+                "Longitude": "28.433719",
+                "Latitude": "54.429156",
+                "WebLink": "https://json.org/example.html"
+            },
+            {
+                "Name": "Examle boris 2",
+                "Longitude": "28.413009",
+                "Latitude": "54.126837",
+                "WebLink": "https://json.org/example.html"
+            }
+        ],
+        "school": []
+    }
+}

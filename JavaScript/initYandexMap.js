@@ -2,14 +2,11 @@
 console.log('initMapFile');
 function divideRegion(regData, regName) {
 	console.log('initFunction');
-	console.log(regData);
-	console.log(regData.preSchool);
 	placemarks[regName] = {};
-	console.log(placemarks);
 	Object.keys(schoolType).map(key => schoolType[key]).forEach(type => {
 		placemarks[regName][type] = [];
+		if (!regData) { return; }
 		if (regData[type]) {
-			
 			regData[type].forEach(el => {
 				console.log('longitude');
 				console.log(el);
@@ -72,20 +69,30 @@ function initMap() {
 
 		map.controls.add(listBox, { float: 'left' });
 		//Инициализация районов --> 
-		map.geoObjects.add(berezinskiy);
+		//map.geoObjects.add(berezinskiy);
 		// console.log(berezinskiyPlaceMarks);
 		// //map.geoObjects.add(berezinskiyPlaceMarks[0]);
 		// berezinskiyPlaceMarks['preSchool'].forEach(element => {
 		// 	map.geoObjects.add(element);
 		// });
 
+		Object.keys(polygons).map(key => polygons[key]).forEach(polygon => {
+			map.geoObjects.add(polygon);
+		});
 
-		Object.keys(regionName).map(key => regionName[key]).forEach(regName => {
+		Object.keys(regionInfo).map(key => regionInfo[key]).forEach(regObj => {
 			console.log('obj keys');
 			console.log(data);
-			console.log(regName);
-			divideRegion(data[regName], regName);
+			console.log(regObj.name);
+			divideRegion(data[regObj.name], regObj.name);
 		});
+
+		// Object.keys(regionName).map(key => regionName[key]).forEach(regName => {
+		// 	console.log('obj keys');
+		// 	console.log(data);
+		// 	console.log(regName);
+		// 	divideRegion(data[regName], regName);
+		// });
 		console.log('here it is');
 		console.log(placemarks);
 		// map.geoObjects.add(borisovskiy);
