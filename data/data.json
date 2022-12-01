@@ -9,8 +9,8 @@
             },
             {
                 "Name": "Examle berez preSchool 2",
-                "Longitude: ": "28.829677",
-                "Latitude: ": "53.700383",
+                "Longitude": "28.829677",
+                "Latitude": "53.800383",
                 "WebLink": "https://json.org/example.html"
             }
         ],
@@ -44,6 +44,30 @@
                 "WebLink": "https://json.org/example.html"
             }
         ],
-        "school": []
+        "school": [
+            {
+                "Name": "Examle boris 3",
+                "Longitude": "28.433719",
+                "Latitude": "54.429156",
+                "WebLink": "https://json.org/example.html"
+            }
+        ],
+        "special": [
+            {
+                "Name": "Examle boris 4",
+                "Longitude": "28.433719",
+                "Latitude": "54.429156",
+                "WebLink": "https://json.org/example.html"
+            }
+        ],
+        "dop": [],
+        "regionSub": [
+            {
+                "Name": "Examle boris 5",
+                "Longitude": "28.433719",
+                "Latitude": "54.429156",
+                "WebLink": "https://json.org/example.html"
+            }
+        ]
     }
 }

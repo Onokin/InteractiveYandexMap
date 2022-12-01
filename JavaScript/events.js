@@ -32,16 +32,22 @@ function globalResetInfo() {
 	$('#info .chervenskiy').css("display", "none");
 	$('#info .jodino').css("display", "none");
 	$('#info .minsk').css("display", "none");
+	$('#info .oblast').css("display", "none");
 }
 
 function FocusOnRegion(region) {
-	console.log('FocusOnRegion' + region.name);
+	console.log(region);
+	if (region.Focus) {
+		region.Focus();
+		return;
+	}
+
 	if (pickRegion != region.name) {
 		ResetFocus();
 		pickRegion = region.name;
 		polygons[region.name].options.set({ strokeColor: '#666633', fillOpacity: 0.2, strokeStyle: 'solid' });
 		map.setCenter(region.center, region.zoom, { duration: 400 }).then(function () {
-			ShowPlacemarks();
+			ShowPlacemarks(pickRegion);
 		}, this);
 		$(`#info .${region.name}`).css("display", "block");
 		$("#info").animate({ right: '0' });
@@ -57,11 +63,9 @@ function ResetFocus() {
 	}
 }
 
-function ShowPlacemarks() {
-	console.log('showPlacemarks');
-	console.log(pickRegion + pickType);
-	if (pickRegion) {
-		placemarks[pickRegion][pickType].forEach(element => {
+function ShowPlacemarks(region) {
+	if (region) {
+		placemarks[region][pickType].forEach(element => {
 			element.options.set('visible', true);
 		});
 
@@ -69,11 +73,7 @@ function ShowPlacemarks() {
 }
 
 function ResetPlacemarks(region) {
-	console.log('resetPlacemarks' + region);
 	if (pickRegion) {
-		// if (pickRegion === region) {
-		// 	pickRegion = '';
-		// }
 		placemarks[region][pickType].forEach(element => {
 			element.options.set('visible', false);
 		});
@@ -83,7 +83,9 @@ function ResetPlacemarks(region) {
 
 
 function ResetPolygon(region) {
-	console.log('resetPoly' + region);
+	if (regionInfo[region].ResetPolygon) {
+		regionInfo[region].ResetPolygon();
+		return;
+	}
 	polygons[region].options.set({ strokeColor: '#CC0033', fillOpacity: 0, strokeStyle: 'shortdash' });
-
 }
