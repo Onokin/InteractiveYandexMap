@@ -60,12 +60,72 @@
                 "WebLink": "https://json.org/example.html"
             }
         ],
-        "dop": [],
-        "regionSub": [
+        "dop": []
+    },
+    "regionSub": {
+        "preSchool": [
             {
-                "Name": "Examle boris 5",
-                "Longitude": "28.433719",
-                "Latitude": "54.429156",
+                "Name": "Examle berez preSchool 1",
+                "Longitude": "28.987556",
+                "Latitude": "53.831955",
+                "WebLink": "https://json.org/example.html"
+            },
+            {
+                "Name": "Examle berez preSchool 2",
+                "Longitude": "28.829677",
+                "Latitude": "53.800383",
+                "WebLink": "https://json.org/example.html"
+            }
+        ],
+        "school": [
+            {
+                "Name": "Examle berez school 1",
+                "Longitude": "28.997556",
+                "Latitude": "53.831955",
+                "WebLink": "https://json.org/example.html"
+            },
+            {
+                "Name": "Examle berez school 2",
+                "Longitude": "25.839677",
+                "Latitude": "53.700383",
+                "WebLink": "https://json.org/example.html"
+            }
+        ],
+        "special": [
+            {
+                "Name": "Examle special 1",
+                "Longitude": "26.997556",
+                "Latitude": "54.831955",
+                "WebLink": "https://json.org/example.html"
+            },
+            {
+                "Name": "Examle special 2",
+                "Longitude": "28.839677",
+                "Latitude": "51.700383",
+                "WebLink": "https://json.org/example.html"
+            },
+            {
+                "Name": "Examle special 3",
+                "Longitude": "223.997556",
+                "Latitude": "55.831955",
+                "WebLink": "https://json.org/example.html"
+            },
+            {
+                "Name": "Examle special 4",
+                "Longitude": "25.839677",
+                "Latitude": "52.700383",
+                "WebLink": "https://json.org/example.html"
+            },
+            {
+                "Name": "Examle special 5",
+                "Longitude": "27.997556",
+                "Latitude": "54.831955",
+                "WebLink": "https://json.org/example.html"
+            },
+            {
+                "Name": "Examle special 6",
+                "Longitude": "29.839677",
+                "Latitude": "54.700383",
                 "WebLink": "https://json.org/example.html"
             }
         ]

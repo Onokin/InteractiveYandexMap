@@ -33,6 +33,7 @@ ymaps.ready(function () {
         });
         polygons[regionInfo.regionSub.name].options.set('visible', true);
         polygons[regionInfo.regionSub.name].options.set({ strokeColor: '#666633', fillOpacity: 0.2, strokeStyle: 'solid' });
+        ShowPlacemarks(regionInfo.regionSub.name);
         $(`#info .${regionInfo.regionSub.name}`).css("display", "block");
         $("#info").animate({ right: '0' });
     }
@@ -43,27 +44,9 @@ ymaps.ready(function () {
             polygon.options.set('visible', true);
         });
         polygons[regionInfo.regionSub.name].options.set('visible', false);
-        console.log("resetPoly");
     }
 
     regionInfo.regionSub['Focus'] = FocusOnOblast;
     regionInfo.regionSub['ResetPolygon'] = ResetPolygonOblast;
-
-
-
-    polygons[regionInfo.regionSub.name].events
-        // .add('mouseenter', function (e) {
-        //     if (pickRegion != regionInfo.regionSub.name) {
-        //         polygons[regionInfo.regionSub.name].options.set({ strokeColor: '#666633', fillOpacity: 0.2, strokeStyle: 'solid' });
-        //     }
-        // })
-        // .add('mouseleave', function (e) {
-        //     if (pickRegion != regionInfo.regionSub.name) {
-        //         ResetPolygon(regionInfo.regionSub.name);
-        //     }
-        // })
-        .add('click', function (e) {
-            //FocusOnRegion(regionInfo.regionSub);
-        });
 });
 

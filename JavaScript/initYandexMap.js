@@ -1,6 +1,12 @@
 
 function divideRegion(regData, regName) {
 	placemarks[regName] = {};
+	console.log(regName);
+	console.log(regionInfo[regName]);
+	if (regionInfo[regName].LoadPlacemarks){ //check on custom loading method
+		regionInfo[regName].LoadPlacemarks();
+		return;
+	}
 	Object.keys(schoolType).map(key => schoolType[key]).forEach(type => {
 		placemarks[regName][type] = [];
 		if (!regData) { return; }
@@ -8,16 +14,15 @@ function divideRegion(regData, regName) {
 			regData[type].forEach(el => {
 				auxPlacemark = new ymaps.Placemark([el.Longitude, el.Latitude],
 					{
-						hintContent: el.Name,
-						balloonContent: `<a href="${el.WebLink}" target="_blank">${el.Name}</a>`
+						hintContent: el.name,
+						balloonContent: `<a href="${el.WebLink}" target="_blank">${el.name}</a>`
 					}, {
 					iconLayout: 'default#image',
 					iconImageHref: 'icons/logo.png',
 					iconImageSize: [30, 30],
 					iconImageOffset: [-5, -38],
 					visible: false,
-				}
-				);
+				});
 				placemarks[regName][type].push(auxPlacemark);
 				map.geoObjects.add(auxPlacemark);
 			});
@@ -61,5 +66,15 @@ function initMap() {
 		Object.keys(regionInfo).map(key => regionInfo[key]).forEach(regObj => {
 			divideRegion(data[regObj.name], regObj.name);
 		});
+
+		//console.log(urlReadParameter(urlParamsInfo.focus_region));
+		let reg = urlReadParameter(urlParamsInfo.focus_region);
+		if (reg){
+			FocusOnRegion(regionInfo[reg]);
+		}
+		// if (urlReadParameter(urlParamsInfo.focus_region) != null){
+		// 	FocusOnRegion(urlReadParameter(urlParamsInfo.focus_region));
+		// }
+		console.log(placemarks);
 	});
 }

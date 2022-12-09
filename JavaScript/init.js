@@ -13,13 +13,14 @@ function loadScript(url, type) {
 }
 
 
-
+loadScript('https://cdn.rooborisov.by/scripts/borisov_point.js', 'text/javascript');
 loadScript('javascript/schoolType.js', 'text/javascript');
 loadScript('javascript/regionName.js', 'text/javascript');
 loadScript('javascript/events.js', 'text/javascript');
 loadScript('javascript/jsonHandler.js', 'text/javascript');
 loadScript('javascript/radio.js', 'text/javascript');
 loadScript('javascript/listbox.js', 'text/javascript');
+loadScript('javascript/urlHandler.js', 'text/javascript');
 loadScript('javascript/regions/berezinskiy_region.js', 'text/javascript');
 loadScript('javascript/regions/borisovskiy_region.js', 'text/javascript');
 loadScript('javascript/regions/chervenskiy_region.js', 'text/javascript');

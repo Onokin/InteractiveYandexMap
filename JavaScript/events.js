@@ -32,11 +32,10 @@ function globalResetInfo() {
 	$('#info .chervenskiy').css("display", "none");
 	$('#info .jodino').css("display", "none");
 	$('#info .minsk').css("display", "none");
-	$('#info .oblast').css("display", "none");
+	$('#info .regionSub').css("display", "none");
 }
 
 function FocusOnRegion(region) {
-	console.log(region);
 	if (region.Focus) {
 		region.Focus();
 		return;
@@ -44,6 +43,7 @@ function FocusOnRegion(region) {
 
 	if (pickRegion != region.name) {
 		ResetFocus();
+		urlWriteParameter(urlParamsInfo.focus_region, region.name);
 		pickRegion = region.name;
 		polygons[region.name].options.set({ strokeColor: '#666633', fillOpacity: 0.2, strokeStyle: 'solid' });
 		map.setCenter(region.center, region.zoom, { duration: 400 }).then(function () {
@@ -56,6 +56,7 @@ function FocusOnRegion(region) {
 
 function ResetFocus() {
 	if (pickRegion) {
+		urlWriteParameter(urlParamsInfo.focus_region, "none");
 		globalResetInfo();
 		ResetPlacemarks(pickRegion);
 		ResetPolygon(pickRegion);
@@ -63,7 +64,7 @@ function ResetFocus() {
 	}
 }
 
-function ShowPlacemarks(region) {
+function ShowPlacemarks(region) { //region - string name of region
 	if (region) {
 		placemarks[region][pickType].forEach(element => {
 			element.options.set('visible', true);
@@ -72,7 +73,7 @@ function ShowPlacemarks(region) {
 	}
 }
 
-function ResetPlacemarks(region) {
+function ResetPlacemarks(region) { //region - string name of region
 	if (pickRegion) {
 		placemarks[region][pickType].forEach(element => {
 			element.options.set('visible', false);
