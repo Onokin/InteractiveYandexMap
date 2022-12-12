@@ -46,7 +46,29 @@ ymaps.ready(function () {
         polygons[regionInfo.regionSub.name].options.set('visible', false);
     }
 
+    function AddInfoOblast(region) {
+		let info = document.getElementById('info-content');
+		info.innerHTML +=
+			`<div class="${region.name}" style="display: none;">
+        <div style="text-align: center;">
+            <a href="${region.mainLink}" target="_blank"><img src="${region.image}"
+                    alt="${region.districtName}"></a>
+        </div>
+        <div style="margin: 20px 10px">
+            <h4>${region.fullName}</h4>
+            ${region.address},
+            <br>тел.: ${region.phone}
+            <br><a href="${region.mainLink}" target="_blank">${region.mainLink}</a>
+            <br>В районе функционируют:
+            <br><b>${data[region.name].stats.school}</b> учреждений общего среднего образования;
+            <br><b>${data[region.name].stats.special }</b> учреждений специального образования;
+            <br><b>${data[region.name].stats.specialSchool}</b> учреждений среднего специального образования;
+            <br><b>${data[region.name].stats.dopAdult}</b> учреждений дополнительного образования взрослых
+        </div>
+    </div>`;
+	}
     regionInfo.regionSub['Focus'] = FocusOnOblast;
     regionInfo.regionSub['ResetPolygon'] = ResetPolygonOblast;
+    regionInfo.regionSub['AddInfo'] = AddInfoOblast;
 });
 

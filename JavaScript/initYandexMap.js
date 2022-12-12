@@ -1,8 +1,6 @@
 
 function divideRegion(regData, regName) {
 	placemarks[regName] = {};
-	console.log(regName);
-	console.log(regionInfo[regName]);
 	if (regionInfo[regName].LoadPlacemarks){ //check on custom loading method
 		regionInfo[regName].LoadPlacemarks();
 		return;
@@ -64,9 +62,11 @@ function initMap() {
 
 		//Инициализация меток
 		Object.keys(regionInfo).map(key => regionInfo[key]).forEach(regObj => {
-			divideRegion(data[regObj.name], regObj.name);
+			divideRegion(data[regObj.name], regObj.name);	
+			AddInfo(regObj);	
 		});
 
+		
 		//console.log(urlReadParameter(urlParamsInfo.focus_region));
 		let reg = urlReadParameter(urlParamsInfo.focus_region);
 		if (reg){
@@ -75,6 +75,5 @@ function initMap() {
 		// if (urlReadParameter(urlParamsInfo.focus_region) != null){
 		// 	FocusOnRegion(urlReadParameter(urlParamsInfo.focus_region));
 		// }
-		console.log(placemarks);
 	});
 }

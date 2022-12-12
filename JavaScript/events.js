@@ -3,6 +3,11 @@ ymaps.ready(function () {
 	$('#info-close').click(function () {
 		$('#info').animate({ right: '-1000' });
 		ResetFocus();
+		map.setCenter(
+            [27.525773, 53.89079],
+            8, 
+			{ duration: 400	}
+        );
 	});
 
 });
@@ -56,7 +61,8 @@ function FocusOnRegion(region) {
 
 function ResetFocus() {
 	if (pickRegion) {
-		urlWriteParameter(urlParamsInfo.focus_region, "none");
+		//urlWriteParameter(urlParamsInfo.focus_region, "none");
+		urlRemoveParameter(urlParamsInfo.focus_region);
 		globalResetInfo();
 		ResetPlacemarks(pickRegion);
 		ResetPolygon(pickRegion);

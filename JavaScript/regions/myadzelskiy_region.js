@@ -20,6 +20,8 @@ ymaps.ready(function () {
         strokeStyle: 'shortdash'
     });
 
+
+
     polygons[regionInfo.myadzelskiy.name].events
     .add('mouseenter', function (e) {
         if (pickRegion != regionInfo.myadzelskiy.name) {
@@ -34,4 +36,7 @@ ymaps.ready(function () {
     .add('click', function (e) {
         FocusOnRegion(regionInfo.myadzelskiy);
     });
+
+
+   
 });

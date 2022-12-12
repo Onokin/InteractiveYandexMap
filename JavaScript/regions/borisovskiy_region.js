@@ -34,19 +34,43 @@ ymaps.ready(function () {
 		placemarks[regionInfo.borisovskiy.name][schoolType.specialSchool] = borisov_specialSchool;
 		placemarks[regionInfo.borisovskiy.name][schoolType.dopYouth] = borisov_dopYouth;
 		placemarks[regionInfo.borisovskiy.name][schoolType.dopAdult] = borisov_dopAdult;
-		console.log(placemarks);
-		console.log(borisov_preSchool);
-		console.log(borisov_school);
-		console.log(borisov_specialSchool);
+		data[regionInfo.borisovskiy.name].stats.preSchool = borisov_preSchool.length;
+		data[regionInfo.borisovskiy.name].stats.school = borisov_school.length;
+		data[regionInfo.borisovskiy.name].stats.special = borisov_special.length;
+		data[regionInfo.borisovskiy.name].stats.dopYouth = borisov_dopYouth.length;
+		data[regionInfo.borisovskiy.name].stats.dopAdult = borisov_dopAdult.length;
 		Object.keys(schoolType).map(key => schoolType[key]).forEach(type => {
-			console.log();
-			placemarks[regionInfo.borisovskiy.name][type].forEach( x=> {
+			placemarks[regionInfo.borisovskiy.name][type].forEach(x => {
 				map.geoObjects.add(x);
 				x.options.set('visible', false);
 				//console.log(x);
 			});
 		});
 	}
+
+	function AddInfoBorisovskiy(region) {
+		let info = document.getElementById('info-content');
+		info.innerHTML +=
+			`<div class="${region.name}" style="display: none;">
+        <div style="text-align: center;">
+            <a href="${region.mainLink}" target="_blank"><img src="${region.image}"
+                    alt="${region.districtName}"></a>
+        </div>
+        <div style="margin: 20px 10px">
+            <h4>${region.fullName}</h4>
+            ${region.address},
+            <br>тел.: ${region.phone}
+            <br><a href="${region.mainLink}" target="_blank">${region.mainLink}</a>
+            <br>В районе функционируют:
+            <br><b>${data[region.name].stats.preSchool}</b> учреждений дошкольного образования; 
+            <br><b>${data[region.name].stats.schoolWithPreSchool}</b> учреждений общего среднего образования, реализующих образовательную программу дошкольного образования;
+            <br><b>${data[region.name].stats.school}</b> учреждений общего среднего образования;
+            <br><b>${data[region.name].stats.special + data[region.name].stats.specialSchool}</b> учреждений специального образования;
+            <br><b>${data[region.name].stats.dopYouth}</b> учреждений дополнительного образования детей и молодежи
+        </div>
+    </div>`;
+	}
+
 
 	polygons[regionInfo.borisovskiy.name].events
 		.add('mouseenter', function (e) {
@@ -65,4 +89,5 @@ ymaps.ready(function () {
 
 
 	regionInfo.borisovskiy['LoadPlacemarks'] = loadBorisovPlacemarks;
+	regionInfo.borisovskiy['AddInfo'] = AddInfoBorisovskiy;
 });

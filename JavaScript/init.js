@@ -52,4 +52,5 @@ loadScript('javascript/initYandexMap.js', 'text/javascript').onload = function (
     initMap();
   });
 };
+loadScript('javascript/regionInfoTemplate.js', 'text/javascript');
 

@@ -15,6 +15,12 @@ function urlWriteParameter(param, value){
     urlParams.set(param, value);
     history.replaceState(null, null, "?"+urlParams.toString());
 }
+function urlRemoveParameter(param){
+    const urlParams = new URLSearchParams(window.location.search);
+    //if (urlParams.has(param)){
+    urlParams.delete(param);
+    history.replaceState(null, null, "?"+urlParams.toString());
+}
 
 
 
