@@ -8,7 +8,7 @@ body,
 	margin: 0;
 	overflow: hidden;
 }
-img {
+.img-info{
 	width: 100px;
 	height: 100px;
 }
@@ -190,6 +190,46 @@ img {
 .w16-h10 {
 	padding-top: 62.5%;
 	/* 16:10 Aspect Ratio */
+}
+
+.check-button {
+	display: inline-block;
+	padding: 3px 5px;
+	background: #eee;
+	border: 1px solid #bbb;
+	border-radius: 3px;
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+}
+.check-button__text {
+	font-family: 'Arial', sans-serif;
+	font-size: 14px;
+	color: #333;
+	margin-left: 10px;
+}
+
+.check-button__img {
+	padding: 20;
+	margin-bottom: -3px;
+}
+
+.check-button_small .check-button__text {
+	display: none;
+}
+
+.check-button_medium .check-button__img {
+	display: none;
+}
+
+.check-button_large .check-button__text {
+	margin-left: 10px;
+}
+.check-button-selected {
+	color: #333333;
+	background-color: #e6e6e6;
+	border: 2px dashed #333;
 }
 
 /* --------------------------------------- */

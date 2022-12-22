@@ -1,4 +1,4 @@
-ymaps.ready(function () {
+regionInfo.kopilskiy["InitPolygon"] = function () {
     polygons[regionInfo.kopilskiy.name] = new ymaps.GeoObject({
         geometry: {
             type: 'Polygon',
@@ -34,4 +34,4 @@ ymaps.ready(function () {
         .add('click', function (e) {
             FocusOnRegion(regionInfo.kopilskiy);
         });
-});
+}

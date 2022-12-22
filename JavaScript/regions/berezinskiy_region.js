@@ -1,4 +1,4 @@
-ymaps.ready(function () {
+regionInfo.berezinskiy["InitPolygon"] = function () {
     polygons[regionInfo.berezinskiy.name] = new ymaps.GeoObject({
         geometry: {
             type: 'Polygon',
@@ -34,5 +34,4 @@ ymaps.ready(function () {
         .add('click', function (e) {
             FocusOnRegion(regionInfo.berezinskiy);
         });
-});
-
+}

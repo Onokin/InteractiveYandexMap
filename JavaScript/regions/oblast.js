@@ -1,4 +1,4 @@
-ymaps.ready(function () {
+regionInfo.regionSub["InitPolygon"] = function () {
     polygons[regionInfo.regionSub.name] = new ymaps.GeoObject({
         geometry: {
             type: 'Polygon',
@@ -26,6 +26,7 @@ ymaps.ready(function () {
             return;
         }
         ResetFocus();
+        urlWriteParameter(urlParamsInfo.focus_region, regionInfo.regionSub.name);
         pickRegion = regionInfo.regionSub.name;
         Object.keys(polygons).map(key => polygons[key]).forEach(polygon => {
             //polygon.options.set({ strokeColor: '#CC0033', fillOpacity: 0, strokeStyle: 'shortdash' });
@@ -47,11 +48,13 @@ ymaps.ready(function () {
     }
 
     function AddInfoOblast(region) {
-		let info = document.getElementById('info-content');
-		info.innerHTML +=
-			`<div class="${region.name}" style="display: none;">
+        let info = document.getElementById('info-content');
+        info.innerHTML +=
+            `<div class="${region.name}" style="display: none;">
         <div style="text-align: center;">
-            <a href="${region.mainLink}" target="_blank"><img src="${region.image}"
+            <a href="${region.mainLink}" target="_blank"><img class="img-info" src="${region.image}"
+                    alt="${region.districtName}"></a>
+            <a href="${region.mainLink}" target="_blank"><img class="img-info" src="${region.image2}"
                     alt="${region.districtName}"></a>
         </div>
         <div style="margin: 20px 10px">
@@ -59,16 +62,16 @@ ymaps.ready(function () {
             ${region.address},
             <br>тел.: ${region.phone}
             <br><a href="${region.mainLink}" target="_blank">${region.mainLink}</a>
-            <br>В районе функционируют:
+            <br>В подчинении главного управления по образованию Минского облисполкома находятся:
             <br><b>${data[region.name].stats.school}</b> учреждений общего среднего образования;
-            <br><b>${data[region.name].stats.special }</b> учреждений специального образования;
+            <br><b>${data[region.name].stats.special}</b> учреждений специального образования;
             <br><b>${data[region.name].stats.specialSchool}</b> учреждений среднего специального образования;
             <br><b>${data[region.name].stats.dopAdult}</b> учреждений дополнительного образования взрослых
         </div>
     </div>`;
-	}
+    }
     regionInfo.regionSub['Focus'] = FocusOnOblast;
     regionInfo.regionSub['ResetPolygon'] = ResetPolygonOblast;
     regionInfo.regionSub['AddInfo'] = AddInfoOblast;
-});
+}
 

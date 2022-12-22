@@ -1,4 +1,4 @@
-ymaps.ready(function () {
+regionInfo.chervenskiy["InitPolygon"] = function () {
 
     polygons[regionInfo.chervenskiy.name] = new ymaps.GeoObject({
         geometry: {
@@ -35,4 +35,4 @@ ymaps.ready(function () {
         .add('click', function (e) {
             FocusOnRegion(regionInfo.chervenskiy);
         });
-});
+}

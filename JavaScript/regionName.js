@@ -3,14 +3,12 @@ const regionName = {
     chervenskiy: 'borisovskiy'
 };
 
-const polygons = {};
-
 const regionInfo = {
     "berezinskiy": {
         "name": "berezinskiy",
-        "fullName": "Березинский район",
+        "districtName": "Березинский район",
         "mainLink" : "http://berezino.edu.by/",
-        "districtName": "districtName",
+        "infoTemplateCrutch": "Березинском районе",
         "fullName" : "Управление по образованию, спорту и туризму Березинского районного исполнительного комитета",
         "address" : "223311, г. Березино, ул. Октябрьская, 18",
         "phone": "+375 (17) 156-36-50",
@@ -24,7 +22,7 @@ const regionInfo = {
     },
     "borisovskiy": {
         "name": "borisovskiy",
-        "fullName": "Борисовский район",
+        "districtName": "Борисовский район",
         "mainLink" : "https://rooborisov.by/",
         "fullName" : "Управление по образованию Борисовского районного исполнительного комитета",
         "address" : "222520, г. Борисов, ул. Орджоникидзе, 9",
@@ -39,7 +37,7 @@ const regionInfo = {
     },
     "chervenskiy": {
         "name": "chervenskiy",
-        "fullName": "Червенский район",
+        "districtName": "Червенский район",
         "mainLink" : "http://cherven.edu.by/",
         "fullName" : "Управление по образованию, спорту и туризму Червенского районного исполнительного комитета",
         "address" : "223232, г. Червень, пл.Свободы,1",
@@ -54,7 +52,7 @@ const regionInfo = {
     },
     "dzerzhinskiy": {
         "name": "dzerzhinskiy",
-        "fullName": "Дзержинский район",
+        "districtName": "Дзержинский район",
         "mainLink" : "https://uo.schoolnet.by/",
         "fullName" : "Управление по образованию, спорту и туризму Дзержинского районного исполнительного комитета",
         "address" : "222720, г. Дзержинск, ул. Кирова, 10",
@@ -69,7 +67,7 @@ const regionInfo = {
     },
     "jodino": {
         "name": "jodino",
-        "fullName": "г. Жодино",
+        "districtName": "г. Жодино",
         "mainLink" : "https://zhodino-edu.gov.by/",
         "fullName" : "Отдел по образованию, спорту и туризму Жодинского городского исполнительного комитета",
         "address" : "222161, г. Жодино, пер. Молодёжный, 3",
@@ -84,7 +82,7 @@ const regionInfo = {
     },
     "kletskiy": {
         "name": "kletskiy",
-        "fullName": "Клецкий район",
+        "districtName": "Клецкий район",
         "mainLink" : "https://kletsk-asveta.gov.by/",
         "fullName" : "Управление по образованию, спорту и туризму Клецкого районного исполнительного комитета",
         "address" : "222531, г.Клецк, пл. Маяковского, 10",
@@ -99,7 +97,7 @@ const regionInfo = {
     },
     "kopilskiy": {
         "name": "kopilskiy",
-        "fullName": "Копыльский район",
+        "districtName": "Копыльский район",
         "mainLink" : "http://kopyl.edu.by/",
         "fullName" : "Управление по образованию, спорту и туризму Копыльского районного исполнительного комитета",
         "address" : "223927, г. Копыль, пл. Ленина, 6",
@@ -114,7 +112,7 @@ const regionInfo = {
     },
     "krupski": {
         "name": "krupski",
-        "fullName": "Крупский район",
+        "districtName": "Крупский район",
         "mainLink" : "https://uost-krupki.obr.by/",
         "fullName" : "Управление по образованию, спорту и туризму Крупского районного исполнительного комитета",
         "address" : "222001, г. Крупки, пер. Вокзальный, 11",
@@ -129,7 +127,7 @@ const regionInfo = {
     },
     "logoyski": {
         "name": "logoyski",
-        "fullName": "Логойский район",
+        "districtName": "Логойский район",
         "mainLink" : "https://logoysk-edu.gov.by/",
         "fullName" : "Управление по образованию, спорту и туризму Логойского районного исполнительного комитета",
         "address" : "223141, г. Логойск, ул.Советская, 15",
@@ -144,7 +142,7 @@ const regionInfo = {
     },
     "lubanski": {
         "name": "lubanski",
-        "fullName": "Любанский район",
+        "districtName": "Любанский район",
         "mainLink" : "http://luban.edu.by/",
         "fullName" : "Управление по образованию, спорту и туризму Любанского районного исполнительного комитета",
         "address" : "223812, г. Любань, ул. Первомайская, 24а",
@@ -159,7 +157,7 @@ const regionInfo = {
     },
     "minskiy": {
         "name": "minskiy",
-        "fullName": "Минский район",
+        "districtName": "Минский район",
         "mainLink" : "https://minsk-roo.gov.by/",
         "fullName" : "Управление по образованию Минского районного исполнительного комитета",
         "address" : "220073, г. Минск, ул. Ольшевского, 8",
@@ -172,9 +170,14 @@ const regionInfo = {
         ],
         "zoom": 10
     },
+    "minsk": {
+        "name": "minsk",
+        "districtName": "Минск",
+        "mainLink" : "https://do.minsk.edu.by/do/files/map/index.html",
+    },
     "molodzechnenskiy": {
         "name": "molodzechnenskiy",
-        "fullName": "Молодечненский район",
+        "districtName": "Молодечненский район",
         "mainLink" : "https://uomrik.gov.by/",
         "fullName" : "Управление по образованию Молодечненского районного исполнительного комитета",
         "address" : "222310, г. Молодечно, ул. Виленская, 6",
@@ -189,7 +192,7 @@ const regionInfo = {
     },
     "myadzelskiy": {
         "name": "myadzelskiy",
-        "fullName": "Мядельский район",
+        "districtName": "Мядельский район",
         "mainLink" : "http://myadel.edu.by/",
         "fullName" : "Управление по образованию, спорту и туризму Мядельского районного исполнительного комитета",
         "address" : "222397, г. Мядель, пл. Шаранговича, 2",
@@ -204,7 +207,7 @@ const regionInfo = {
     },
     "nesvizhskiy": {
         "name": "nesvizhskiy",
-        "fullName": "Несвижский район",
+        "districtName": "Несвижский район",
         "mainLink" : "http://несвиж-асвета.бел/",
         "fullName" : "Управление по образованию, спорту и туризму Несвижского районного исполнительного комитета",
         "address" : "222603, г. Несвиж, ул. Советская, 1",
@@ -219,7 +222,7 @@ const regionInfo = {
     },
     "pukhovichskiy": {
         "name": "pukhovichskiy",
-        "fullName": "Пуховичский район",
+        "districtName": "Пуховичский район",
         "mainLink" : "http://obrazovanie-pukhovichi.by/",
         "fullName" : "Управление по образованию, спорту и туризму Пуховичского районного исполнительного комитета",
         "address" : "222811, г. Марьина Горка, ул. Ленинская, 47",
@@ -234,7 +237,7 @@ const regionInfo = {
     },
     "slutskiy": {
         "name": "slutskiy",
-        "fullName": "Слуцкий район",
+        "districtName": "Слуцкий район",
         "mainLink" : "https://slutsk-vedy.gov.by/",
         "fullName" : "Управление по образованию Слуцкого районного исполнительного комитета",
         "address" : "223610, г. Слуцк, ул. Ленина, 189",
@@ -249,7 +252,7 @@ const regionInfo = {
     },
     "smolevichskiy": {
         "name": "smolevichskiy",
-        "fullName": "Смолевичский район",
+        "districtName": "Смолевичский район",
         "mainLink" : "https://smoledu.by/",
         "fullName" : "Управление по образованию, спорту и туризму Смолевичского районного исполнительного комитета",
         "address" : "222201, г. Смолевичи, ул. Советская,119",
@@ -264,7 +267,7 @@ const regionInfo = {
     },
     "soligorskiy": {
         "name": "soligorskiy",
-        "fullName": "Солигорский район",
+        "districtName": "Солигорский район",
         "mainLink" : "http://edusoligorsk.by/",
         "fullName" : "Управление по образованию Солигорского районного исполнительного комитета",
         "address" : "223710, г. Солигорск, ул. Козлова, 35",
@@ -279,7 +282,7 @@ const regionInfo = {
     },
     "starodorozhskiy": {
         "name": "starodorozhskiy",
-        "fullName": "Стародорожский район",
+        "districtName": "Стародорожский район",
         "mainLink" : "https://starye-dorogi.by/",
         "fullName" : "Управление по образованию, спорту и туризму Стародорожского районного исполнительного комитета",
         "address" : "222932, г. Старые Дороги, ул. Пролетарская, 38",
@@ -294,7 +297,7 @@ const regionInfo = {
     },
     "stolbcovskiy": {
         "name": "stolbcovskiy",
-        "fullName": "Столбцовский район",
+        "districtName": "Столбцовский район",
         "mainLink" : "https://stolbtsy-edu.gov.by/",
         "fullName" : "Управление по образованию, спорту и туризму Столбцовского районного исполнительного комитета",
         "address" : "222666, г. Столбцы, ул. Социалистическая, 17",
@@ -309,7 +312,7 @@ const regionInfo = {
     },
     "uzdenskiy": {
         "name": "uzdenskiy",
-        "fullName": "Узденский район",
+        "districtName": "Узденский район",
         "mainLink" : "https://uzda-asveta.gov.by/",
         "fullName" : "Управление по образованию, спорту и туризму Узденского районного исполнительного комитета",
         "address" : "223411, г. Узда, ул. Советская, 22",
@@ -324,7 +327,7 @@ const regionInfo = {
     },
     "vileyskiy": {
         "name": "vileyskiy",
-        "fullName": "Вилейский район",
+        "districtName": "Вилейский район",
         "mainLink" : "https://vileyka-edu.gov.by/",
         "fullName" : "Управление по образованию, спорту и туризму Вилейского районного исполнительного комитета",
         "address" : "222410, г. Вилейка, ул. Партизанская, 44",
@@ -339,7 +342,7 @@ const regionInfo = {
     },
     "volozhinskiy": {
         "name": "volozhinskiy",
-        "fullName": "Воложинский район",
+        "districtName": "Воложинский район",
         "mainLink" : "https://volozhin-edu.gov.by/",
         "fullName" : "Управление по образованию, спорту и туризму Воложинского районного исполнительного комитета",
         "address" : "222357, г. Воложин, ул. Партизанская, 15",
@@ -354,8 +357,8 @@ const regionInfo = {
     },
     "regionSub": {
         "name": "regionSub",
-        "fullName": "Учреждения областного подчинения",
-        "mainLink" : "https://volozhin-edu.gov.by/",
+        "districtName": "Учреждения областного подчинения",
+        "mainLink" : "https://uomoik.gov.by",
         "fullName" : "Главное управление по образованию Минского областного исполнительного комитета",
         "address" : "220030, г. Минск, ул. Энгельса, 4",
         "phone": "+375 (17) 517-34-82",

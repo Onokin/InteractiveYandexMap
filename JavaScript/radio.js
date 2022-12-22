@@ -1,5 +1,13 @@
 ymaps.ready(function () {
 
+	// var radioGroup = new ymaps.control.RadioGroup({
+    //     items: [
+	// 		new ymaps.control.Button({ data: { content: 'Включить' } }, { selectedByDefault: true }),
+    //         new ymaps.control.Button({ data: { content: 'Сохранить' } }), 
+    //     ]
+    // });
+
+
 	function RadioResetPlacemarks() {
 		globalPlacemarkResetSchools();
 	}
@@ -13,7 +21,7 @@ ymaps.ready(function () {
 		//RadioResetChildren();
 		//RadioResetRsp();
 
-		if (enabled &&  selectedType != pickType) {
+		if (enabled && selectedType != pickType) {
 			ResetPlacemarks(pickRegion);
 			pickType = selectedType;
 			ShowPlacemarks(pickRegion);
@@ -42,39 +50,6 @@ ymaps.ready(function () {
 		// 		console.log(`err`);
 		// }
 	}
-
-
-
-	// 	if ($("#radio-preSchool input:checked").val() == "on") {
-	// 		if (pick == 'Centralnyj') {
-	// 			CentralnyjSchools.options.set('visible', true);
-	// 		}
-	// 		if (pick == 'Frunzenskij') {
-	// 			FrunzenskijSchools.options.set('visible', true);
-	// 		}
-	// 		if (pick == 'Leninskij') {
-	// 			LeninskijSchools.options.set('visible', true);
-	// 		}
-	// 		if (pick == 'Moskovskij') {
-	// 			MoskovskijSchools.options.set('visible', true);
-	// 		}
-	// 		if (pick == 'Oktyabrskij') {
-	// 			OktyabrskijSchools.options.set('visible', true);
-	// 		}
-	// 		if (pick == 'Partizanskij') {
-	// 			PartizanskijSchools.options.set('visible', true);
-	// 		}
-	// 		if (pick == 'Pervomajskij') {
-	// 			PervomajskijSchools.options.set('visible', true);
-	// 		}
-	// 		if (pick == 'Sovetskij') {
-	// 			SovetskijSchools.options.set('visible', true);
-	// 		}
-	// 		if (pick == 'Zavodskoj') {
-	// 			ZavodskojSchools.options.set('visible', true);
-	// 		}
-	// 	}
-	// }
 
 
 	//enable preSchool by default

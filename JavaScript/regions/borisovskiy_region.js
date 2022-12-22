@@ -1,4 +1,4 @@
-ymaps.ready(function () {
+regionInfo.borisovskiy["InitPolygon"] = function() {
 	polygons[regionInfo.borisovskiy.name] = new ymaps.GeoObject({
 		geometry: {
 			type: 'Polygon',
@@ -21,29 +21,22 @@ ymaps.ready(function () {
 	});
 
 	function loadBorisovPlacemarks() {
-		// placemarks[regionInfo.borisovskiy.name][schoolType.preSchool] = [];
-		// placemarks[regionInfo.borisovskiy.name][schoolType.school] = [];
-		// placemarks[regionInfo.borisovskiy.name][schoolType.special] = [];
-		// placemarks[regionInfo.borisovskiy.name][schoolType.specialSchool] = [];
-		// placemarks[regionInfo.borisovskiy.name][schoolType.dopYouth] = [];
-		// placemarks[regionInfo.borisovskiy.name][schoolType.dopAdult] = [];
-
 		placemarks[regionInfo.borisovskiy.name][schoolType.preSchool] = borisov_preSchool;
 		placemarks[regionInfo.borisovskiy.name][schoolType.school] = borisov_school;
 		placemarks[regionInfo.borisovskiy.name][schoolType.special] = borisov_special;
 		placemarks[regionInfo.borisovskiy.name][schoolType.specialSchool] = borisov_specialSchool;
 		placemarks[regionInfo.borisovskiy.name][schoolType.dopYouth] = borisov_dopYouth;
 		placemarks[regionInfo.borisovskiy.name][schoolType.dopAdult] = borisov_dopAdult;
-		data[regionInfo.borisovskiy.name].stats.preSchool = borisov_preSchool.length;
-		data[regionInfo.borisovskiy.name].stats.school = borisov_school.length;
-		data[regionInfo.borisovskiy.name].stats.special = borisov_special.length;
-		data[regionInfo.borisovskiy.name].stats.dopYouth = borisov_dopYouth.length;
-		data[regionInfo.borisovskiy.name].stats.dopAdult = borisov_dopAdult.length;
+		data[regionInfo.borisovskiy.name].stats.preSchool = borisov_stats.preSchool;
+		data[regionInfo.borisovskiy.name].stats.school = borisov_stats.school;
+		data[regionInfo.borisovskiy.name].stats.schoolWithPreSchool = borisov_stats.schoolWithPreSchool;
+		data[regionInfo.borisovskiy.name].stats.special = borisov_stats.special;
+		data[regionInfo.borisovskiy.name].stats.dopYouth = borisov_stats.dopYouth;
+		data[regionInfo.borisovskiy.name].stats.dopAdult = borisov_stats.dopAdult;
 		Object.keys(schoolType).map(key => schoolType[key]).forEach(type => {
 			placemarks[regionInfo.borisovskiy.name][type].forEach(x => {
 				map.geoObjects.add(x);
 				x.options.set('visible', false);
-				//console.log(x);
 			});
 		});
 	}
@@ -53,7 +46,7 @@ ymaps.ready(function () {
 		info.innerHTML +=
 			`<div class="${region.name}" style="display: none;">
         <div style="text-align: center;">
-            <a href="${region.mainLink}" target="_blank"><img src="${region.image}"
+            <a href="${region.mainLink}" target="_blank"><img class="img-info" src="${region.image}"
                     alt="${region.districtName}"></a>
         </div>
         <div style="margin: 20px 10px">
@@ -90,4 +83,4 @@ ymaps.ready(function () {
 
 	regionInfo.borisovskiy['LoadPlacemarks'] = loadBorisovPlacemarks;
 	regionInfo.borisovskiy['AddInfo'] = AddInfoBorisovskiy;
-});
+}

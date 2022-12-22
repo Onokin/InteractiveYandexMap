@@ -8,7 +8,7 @@ function AddInfo(region) {
     info.innerHTML +=
         `<div class="${region.name}" style="display: none;">
         <div style="text-align: center;">
-            <a href="${region.mainLink}" target="_blank"><img src="${region.image}"
+            <a href="${region.mainLink}" target="_blank"><img class="img-info" src="${region.image}"
                     alt="${region.districtName}"></a>
         </div>
         <div style="margin: 20px 10px">

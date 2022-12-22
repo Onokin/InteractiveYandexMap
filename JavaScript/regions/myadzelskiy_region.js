@@ -1,4 +1,4 @@
-ymaps.ready(function () {
+regionInfo.myadzelskiy["InitPolygon"] = function () {
     polygons[regionInfo.myadzelskiy.name] = new ymaps.GeoObject({
         geometry: {
             type: 'Polygon',
@@ -23,20 +23,17 @@ ymaps.ready(function () {
 
 
     polygons[regionInfo.myadzelskiy.name].events
-    .add('mouseenter', function (e) {
-        if (pickRegion != regionInfo.myadzelskiy.name) {
-            polygons[regionInfo.myadzelskiy.name].options.set({ strokeColor: '#666633', fillOpacity: 0.2, strokeStyle: 'solid' });
-        }
-    })
-    .add('mouseleave', function (e) {
-        if (pickRegion != regionInfo.myadzelskiy.name) {
-            ResetPolygon(regionInfo.myadzelskiy.name);
-        }
-    })
-    .add('click', function (e) {
-        FocusOnRegion(regionInfo.myadzelskiy);
-    });
-
-
-   
-});
+        .add('mouseenter', function (e) {
+            if (pickRegion != regionInfo.myadzelskiy.name) {
+                polygons[regionInfo.myadzelskiy.name].options.set({ strokeColor: '#666633', fillOpacity: 0.2, strokeStyle: 'solid' });
+            }
+        })
+        .add('mouseleave', function (e) {
+            if (pickRegion != regionInfo.myadzelskiy.name) {
+                ResetPolygon(regionInfo.myadzelskiy.name);
+            }
+        })
+        .add('click', function (e) {
+            FocusOnRegion(regionInfo.myadzelskiy);
+        });
+}

@@ -1,7 +1,6 @@
-
 function divideRegion(regData, regName) {
 	placemarks[regName] = {};
-	if (regionInfo[regName].LoadPlacemarks){ //check on custom loading method
+	if (regionInfo[regName].LoadPlacemarks) { //check on custom loading method
 		regionInfo[regName].LoadPlacemarks();
 		return;
 	}
@@ -28,6 +27,20 @@ function divideRegion(regData, regName) {
 	});
 }
 
+function polygonInitChecker(regObj) {
+	if (typeof polygons[regObj.name] === "undefined") {
+		setTimeout(function () {
+			polygonInitChecker(regObj);
+			console.log(placemarks);
+		}, 100);
+		console.log(`${regObj.name} got late`);
+	}
+	else {
+		map.geoObjects.add(polygons[regObj.name]);
+	}
+}
+
+
 function initMap() {
 	ymaps.ready(function () {
 
@@ -43,37 +56,91 @@ function initMap() {
 			{ duration: 400 }
 		);
 
+
+
+		//Инициализация меток, информационных панелей и полигонов
+		Object.keys(regionInfo).map(key => regionInfo[key]).forEach(regObj => {
+			if (regObj.InitPolygon) {
+				regObj.InitPolygon();
+				polygonInitChecker(regObj);
+			}
+			divideRegion(data[regObj.name], regObj.name);
+			AddInfo(regObj);
+		});
 		// Создадим элемент управления поиск
 		var searchControl = new ymaps.control.SearchControl({
 			options: {
 				provider: 'yandex#search'
 			}
 		});
-
-		// Добавим поиск на карту
 		map.controls.add(searchControl);
+		initListBox();
+		// while (typeof listBox === "undefined"){
+		// 	console.log("list box got late");
+		// }
 
-		map.controls.add(listBox, { float: 'left' });
 
 		//Инициализация полигонов 
-		Object.keys(polygons).map(key => polygons[key]).forEach(polygon => {
-			map.geoObjects.add(polygon);
-		});
+		//console.log(Object.keys(polygons).map(key => polygons[key]).length);
+		// Object.keys(polygons).map(key => polygons[key]).forEach(polygon => {
+		// 	map.geoObjects.add(polygon);
+		// });
 
-		//Инициализация меток
-		Object.keys(regionInfo).map(key => regionInfo[key]).forEach(regObj => {
-			divideRegion(data[regObj.name], regObj.name);	
-			AddInfo(regObj);	
-		});
 
-		
+
+
 		//console.log(urlReadParameter(urlParamsInfo.focus_region));
 		let reg = urlReadParameter(urlParamsInfo.focus_region);
-		if (reg){
+		if (reg) {
 			FocusOnRegion(regionInfo[reg]);
 		}
 		// if (urlReadParameter(urlParamsInfo.focus_region) != null){
 		// 	FocusOnRegion(urlReadParameter(urlParamsInfo.focus_region));
 		// }
+
+
+		// var button = new ymaps.control.Button({
+		// 	data: {
+		// 		// Зададим иконку для кнопки
+		// 		image: 'images/button.jpg',
+		// 		// Текст на кнопке.
+		// 		content: 'Сохранитьwwwwwwwwwwwwwwwwwwwwwww',
+		// 		// Текст всплывающей подсказки.
+		// 		title: 'Нажмите для сохранения маршрута'
+		// 	}
+		// }, {
+		// 	// Зададим опции для кнопки.
+		// 	selectOnClick: false
+		// });
+		// map.controls.add(button, { top: 200, right: 500 });
+
+
+		
+
+		// var button = new ymaps.control.Button({
+		// 	data: {
+		// 		content: 'Red button',
+		// 		title: 'Press the button'
+		// 	},
+		// 	options: {
+		// 		layout: ymaps.templateLayoutFactory.createClass(
+		// 			// Если кнопка не нажата, применяется CSS стиль 'myButton'.
+		// 			// Если кнопка нажата, к ней применятся CSS-стили 'myButton' и 'myButtonSelected'.
+
+		// 			"<div class='myButton {% if state.selected %}myButtonSelected{% endif %}' title='{{ data.title }}'>" +
+		// 			"{{ data.content }}" +
+		// 			"</div>"
+		// 		),
+		// 		// Чтобы другие элементы управления корректно позиционировались по горизонтали,
+		// 		// нужно обязательно задать максимальную ширину для макета.
+		// 		maxWidth: 150
+		// 	}
+		// });
+		// map.controls.add(button, { float: 'left', floatIndex: 0 });
+
+		// // Можно задать позиционирование относительно краев карты. В этом случае
+		// // значение опции maxWidth не влияет на позиционирование
+		// // элементов управления.
+		// map.controls.add(button, { float: 'none', position: { left: '5px', top: '5px' } });
 	});
 }
