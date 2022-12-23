@@ -12,7 +12,7 @@ function buttonChecked(selectedType, enabled) {
 
 function createButton(content, image, offset){
     ButtonLayout = ymaps.templateLayoutFactory.createClass([
-        '<div title="{{ data.title }}" style = "margin: 5px" class="check-button',
+        '<div title="{{ data.title }}" style = "margin: 5px" class="check-button ',
         '{% if state.size == "small" %}check-button_large{% endif %}',//check-button_small
         '{% if state.size == "medium" %}check-button_large{% endif %}',//check-button_medium
         '{% if state.size == "large" %}check-button_large{% endif %}',//check-button_large
@@ -23,16 +23,12 @@ function createButton(content, image, offset){
     ].join(''));
     let button = new ymaps.control.Button({
         data: {
-            // Зададим иконку для кнопки.
             image,
-            // Текст на кнопке.
             content,
-            // Текст всплывающей подсказки.
             title: `Отобразить учреждения уровня "${content}"`
         },
         options: {
             layout: ButtonLayout,
-            // Зададим опции кнопки.
             selectOnClick: true,
             // У кнопки будет три состояния: иконка, текст и текст + иконка.
             // Зададим три значения ширины кнопки для всех состояний.
@@ -42,8 +38,6 @@ function createButton(content, image, offset){
             position: {left: '40px', top: `${offset + 45}px`}
         }
     });
-    console.log(button);
-    //map.controls.add(button2, { float: 'right', floatIndex: 100 });
     return button;
 }
 
