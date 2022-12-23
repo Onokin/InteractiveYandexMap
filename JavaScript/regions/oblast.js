@@ -65,10 +65,10 @@ regionInfo.regionSub["InitPolygon"] = function () {
             <br>тел.: ${region.phone}
             <br><a href="${region.mainLink}" target="_blank">${region.mainLink}</a>
             <br>В подчинении главного управления по образованию Минского облисполкома находятся:
-            <br><b>${data[region.name].stats.school}</b> учреждений общего среднего образования;
-            <br><b>${data[region.name].stats.special}</b> учреждений специального образования;
-            <br><b>${data[region.name].stats.specialSchool}</b> учреждений среднего специального образования;
-            <br><b>${data[region.name].stats.dopAdult}</b> учреждений дополнительного образования взрослых
+            <br><b>${data[region.name].stats.school}</b> ${numericalDeclension(data[region.name].stats.school)} общего среднего образования;
+            <br><b>${data[region.name].stats.special}</b> ${numericalDeclension(data[region.name].stats.special)} специального образования;
+            <br><b>${data[region.name].stats.specialSchool}</b> ${numericalDeclension(data[region.name].stats.specialSchool)} среднего специального образования;
+            <br><b>${data[region.name].stats.dopAdult}</b> ${numericalDeclension(data[region.name].stats.dopAdult)} дополнительного образования взрослых    
         </div>
     </div>`;
     }

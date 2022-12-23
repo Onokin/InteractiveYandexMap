@@ -34,4 +34,28 @@ regionInfo.jodino["InitPolygon"] = function () {
 		.add('click', function (e) {
 			FocusOnRegion(regionInfo.jodino);
 		});
+
+	function AddInfoBorisovskiy(region) {
+		let info = document.getElementById('info-content');
+		info.innerHTML +=
+			`<div class="${region.name}" style="display: none;">
+			<div style="text-align: center;">
+				<a href="${region.mainLink}" target="_blank"><img class="img-info" src="${region.image}"
+						alt="${region.districtName}"></a>
+			</div>
+			<div style="margin: 20px 10px">
+				<h4>${region.fullName}</h4>
+				${region.address},
+				<br>тел.: ${region.phone}
+				<br><a href="${region.mainLink}" target="_blank">${region.mainLink}</a>
+				<br>В ${region.districtName} функционируют:
+				<br><b>${data[region.name].stats.preSchool}</b> ${numericalDeclension(data[region.name].stats.preSchool)} дошкольного образования; 
+				<br><b>${data[region.name].stats.schoolWithPreSchool}</b> ${numericalDeclension(data[region.name].stats.schoolWithPreSchool)} общего среднего образования, реализующих образовательную программу дошкольного образования;
+				<br><b>${data[region.name].stats.school}</b> ${numericalDeclension(data[region.name].stats.school)} общего среднего образования;
+				<br><b>${data[region.name].stats.special + data[region.name].stats.specialSchool}</b> ${numericalDeclension(data[region.name].stats.special + data[region.name].stats.specialSchool)} специального образования;
+				<br><b>${data[region.name].stats.dopYouth}</b> ${numericalDeclension(data[region.name].stats.dopYouth)} дополнительного образования детей и молодежи
+			</div>
+		</div>`;
+	}
+	regionInfo.jodino['AddInfo'] = AddInfoBorisovskiy;
 }

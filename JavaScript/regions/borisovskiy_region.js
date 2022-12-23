@@ -54,12 +54,12 @@ regionInfo.borisovskiy["InitPolygon"] = function() {
             ${region.address},
             <br>тел.: ${region.phone}
             <br><a href="${region.mainLink}" target="_blank">${region.mainLink}</a>
-            <br>В районе функционируют:
-            <br><b>${data[region.name].stats.preSchool}</b> учреждений дошкольного образования; 
-            <br><b>${data[region.name].stats.schoolWithPreSchool}</b> учреждений общего среднего образования, реализующих образовательную программу дошкольного образования;
-            <br><b>${data[region.name].stats.school}</b> учреждений общего среднего образования;
-            <br><b>${data[region.name].stats.special + data[region.name].stats.specialSchool}</b> учреждений специального образования;
-            <br><b>${data[region.name].stats.dopYouth}</b> учреждений дополнительного образования детей и молодежи
+            <br>В ${region.regionalDeclension} районе функционируют:
+            <br><b>${data[region.name].stats.preSchool}</b> ${numericalDeclension(data[region.name].stats.preSchool)} дошкольного образования; 
+            <br><b>${data[region.name].stats.schoolWithPreSchool}</b> ${numericalDeclension(data[region.name].stats.schoolWithPreSchool)} общего среднего образования, реализующих образовательную программу дошкольного образования;
+            <br><b>${data[region.name].stats.school}</b> ${numericalDeclension(data[region.name].stats.school)} общего среднего образования;
+            <br><b>${data[region.name].stats.special + data[region.name].stats.specialSchool}</b> ${numericalDeclension(data[region.name].stats.special + data[region.name].stats.specialSchool)} специального образования;
+            <br><b>${data[region.name].stats.dopYouth}</b> ${numericalDeclension(data[region.name].stats.dopYouth)} дополнительного образования детей и молодежи
         </div>
     </div>`;
 	}
