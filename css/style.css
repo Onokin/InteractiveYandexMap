@@ -211,12 +211,12 @@ body,
 }
 
 .check-button__img {
-	padding: 20;
-	margin-bottom: -3px;
+	padding: 0;
+	margin-bottom: 0px;
 }
 
 .check-button_small .check-button__text {
-	display: none;
+	display: none; 
 }
 
 .check-button_medium .check-button__img {
@@ -228,8 +228,7 @@ body,
 }
 .check-button-selected {
 	color: #333333;
-	background-color: #e6e6e6;
-	border: 2px dashed #333;
+	background-color: #4ff04f;
 }
 
 /* --------------------------------------- */

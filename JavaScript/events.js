@@ -4,10 +4,10 @@ ymaps.ready(function () {
 		$('#info').animate({ right: '-1000' });
 		ResetFocus();
 		map.setCenter(
-            [27.525773, 53.89079],
-            8, 
-			{ duration: 400	}
-        );
+			[27.525773, 53.89079],
+			8,
+			{ duration: 400 }
+		);
 	});
 
 });
@@ -72,22 +72,32 @@ function ResetFocus() {
 
 function ShowPlacemarks(region) { //region - string name of region
 	if (region) {
-		placemarks[region][pickType].forEach(element => {
-			element.options.set('visible', true);
+		Object.keys(schoolType).map(key => schoolType[key]).forEach(type => {
+			placemarks[region][type.name].forEach(element => {
+				element.options.set('visible', type.isEnabled);
+			});
 		});
-
 	}
 }
 
 function ResetPlacemarks(region) { //region - string name of region
-	if (pickRegion) {
-		placemarks[region][pickType].forEach(element => {
-			element.options.set('visible', false);
+	if (region) {
+		Object.keys(schoolType).map(key => schoolType[key]).forEach(type => {
+			placemarks[region][type.name].forEach(element => {
+				element.options.set('visible', false);
+			});
 		});
-
 	}
 }
 
+function ToggleTypePlaceMarks(type) { //type - object of region schoolType
+	if (pickRegion) {
+		type.isEnabled = !type.isEnabled;
+		placemarks[pickRegion][type.name].forEach(element => {
+			element.options.set('visible', type.isEnabled);
+		});
+	}
+}
 
 function ResetPolygon(region) {
 	if (regionInfo[region].ResetPolygon) {

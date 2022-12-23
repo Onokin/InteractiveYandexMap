@@ -21,12 +21,12 @@ regionInfo.borisovskiy["InitPolygon"] = function() {
 	});
 
 	function loadBorisovPlacemarks() {
-		placemarks[regionInfo.borisovskiy.name][schoolType.preSchool] = borisov_preSchool;
-		placemarks[regionInfo.borisovskiy.name][schoolType.school] = borisov_school;
-		placemarks[regionInfo.borisovskiy.name][schoolType.special] = borisov_special;
-		placemarks[regionInfo.borisovskiy.name][schoolType.specialSchool] = borisov_specialSchool;
-		placemarks[regionInfo.borisovskiy.name][schoolType.dopYouth] = borisov_dopYouth;
-		placemarks[regionInfo.borisovskiy.name][schoolType.dopAdult] = borisov_dopAdult;
+		placemarks[regionInfo.borisovskiy.name][schoolType.preSchool.name] = borisov_preSchool;
+		placemarks[regionInfo.borisovskiy.name][schoolType.school.name] = borisov_school;
+		placemarks[regionInfo.borisovskiy.name][schoolType.special.name] = borisov_special;
+		placemarks[regionInfo.borisovskiy.name][schoolType.specialSchool.name] = borisov_specialSchool;
+		placemarks[regionInfo.borisovskiy.name][schoolType.dopYouth.name] = borisov_dopYouth;
+		placemarks[regionInfo.borisovskiy.name][schoolType.dopAdult.name] = borisov_dopAdult;
 		data[regionInfo.borisovskiy.name].stats.preSchool = borisov_stats.preSchool;
 		data[regionInfo.borisovskiy.name].stats.school = borisov_stats.school;
 		data[regionInfo.borisovskiy.name].stats.schoolWithPreSchool = borisov_stats.schoolWithPreSchool;
@@ -34,7 +34,7 @@ regionInfo.borisovskiy["InitPolygon"] = function() {
 		data[regionInfo.borisovskiy.name].stats.dopYouth = borisov_stats.dopYouth;
 		data[regionInfo.borisovskiy.name].stats.dopAdult = borisov_stats.dopAdult;
 		Object.keys(schoolType).map(key => schoolType[key]).forEach(type => {
-			placemarks[regionInfo.borisovskiy.name][type].forEach(x => {
+			placemarks[regionInfo.borisovskiy.name][type.name].forEach(x => {
 				map.geoObjects.add(x);
 				x.options.set('visible', false);
 			});

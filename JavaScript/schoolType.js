@@ -1,8 +1,35 @@
 const schoolType = {
-    preSchool: 'preSchool',
-    school: 'school',
-    special: 'special',
-    specialSchool: 'specialSchool',
-    dopYouth: 'dopYouth',
-    dopAdult: 'dopAdult',
-  };
+  preSchool: {
+    name: 'preSchool',
+    title: 'Дошкольное образование',
+    isEnabled: true,
+  },
+  school: {
+    name: 'school',
+    title: 'Общее среднее образование',
+    isEnabled: false,
+  },
+  special: {
+    name: 'special',
+    title: 'Специальное образование',
+    isEnabled: false,
+  },
+  specialSchool: {
+    name: 'specialSchool',
+    title: 'Среднее специальное образование',
+    isEnabled: false,
+  },
+  dopYouth: {
+    name: 'dopYouth',
+    title: 'Дополнительное образование детей и молодежи',
+    isEnabled: false,
+  },
+  dopAdult: {
+    name: 'dopAdult',
+    title: 'Дополнительное образование взрослых',
+    isEnabled: false,
+  }
+};
+
+
+

@@ -5,10 +5,10 @@ function divideRegion(regData, regName) {
 		return;
 	}
 	Object.keys(schoolType).map(key => schoolType[key]).forEach(type => {
-		placemarks[regName][type] = [];
+		placemarks[regName][type.name] = [];
 		if (!regData) { return; }
-		if (regData[type]) {
-			regData[type].forEach(el => {
+		if (regData[type.name]) {
+			regData[type.name].forEach(el => {
 				auxPlacemark = new ymaps.Placemark([el.Longitude, el.Latitude],
 					{
 						hintContent: el.name,
@@ -20,7 +20,7 @@ function divideRegion(regData, regName) {
 					iconImageOffset: [-5, -38],
 					visible: false,
 				});
-				placemarks[regName][type].push(auxPlacemark);
+				placemarks[regName][type.name].push(auxPlacemark);
 				map.geoObjects.add(auxPlacemark);
 			});
 		}
@@ -79,6 +79,7 @@ function initMap() {
 		// 	console.log("list box got late");
 		// }
 
+		initButtons();
 
 		//Инициализация полигонов 
 		//console.log(Object.keys(polygons).map(key => polygons[key]).length);

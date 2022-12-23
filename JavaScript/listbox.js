@@ -1,59 +1,5 @@
-function createButton(){
-    ButtonLayout = ymaps.templateLayoutFactory.createClass([
-        '<div title="{{ data.title }}" class="check-button ',
-        '{% if state.size == "small" %}check-button_small{% endif %}',
-        '{% if state.size == "medium" %}check-button_medium{% endif %}',
-        '{% if state.size == "large" %}check-button_large{% endif %}',
-        '{% if state.selected %} check-button-selected{% endif %}">',
-        '<img class="check-button__img" width="20" height="20" src="{{ data.image }}" alt="{{ data.title }}">',
-        '<span class="check-button__text">{{ data.content }}</span>',
-        '</div>'
-    ].join(''));
-    let button = new ymaps.control.Button({
-        data: {
-            // Зададим иконку для кнопки.
-            image: 'icons/gears.png',
-            // Текст на кнопке.
-            content: 'Save1',
-            // Текст всплывающей подсказки.
-            title: 'Click to save the route'
-        },
-        options: {
-            layout: ButtonLayout,
-            // Зададим опции кнопки.
-            selectOnClick: true,
-            // У кнопки будет три состояния: иконка, текст и текст + иконка.
-            // Зададим три значения ширины кнопки для всех состояний.
-            maxWidth: [600, 400, 500],
-            float: 'right', 
-            floatIndex: 100,
-        }
-    });
-    console.log(button);
-    //map.controls.add(button2, { float: 'right', floatIndex: 100 });
-    return button;
-}
 function initListBox() {
     ymaps.ready(function () {
-		//button3.state.set('selected', true);
-        // let aux = createButton();
-        // map.controls.add(aux);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         var listBoxItems = [
             new ymaps.control.ListBoxItem({
                 data: {
@@ -435,6 +381,6 @@ function initListBox() {
             }
         });
 
-        map.controls.add(listBox, { float: 'left' });
+        map.controls.add(listBox, { float: 'left', floatIndex: 100 });
     });
 }

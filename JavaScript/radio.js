@@ -1,12 +1,10 @@
 ymaps.ready(function () {
-
 	// var radioGroup = new ymaps.control.RadioGroup({
     //     items: [
 	// 		new ymaps.control.Button({ data: { content: 'Включить' } }, { selectedByDefault: true }),
     //         new ymaps.control.Button({ data: { content: 'Сохранить' } }), 
     //     ]
     // });
-
 
 	function RadioResetPlacemarks() {
 		globalPlacemarkResetSchools();
@@ -56,22 +54,22 @@ ymaps.ready(function () {
 	$("#radio-preSchool input").prop("checked", true);
 
 	$("#radio-school input").on("click", function () {
-		RadioBattonChecked(schoolType.school, $("#radio-school input:checked").val() == "on" ? true : false)
+		RadioBattonChecked(schoolType.school.name, $("#radio-school input:checked").val() == "on" ? true : false)
 	});
 	$("#radio-preSchool input").on("click", function () { 
-		RadioBattonChecked(schoolType.preSchool, $("#radio-preSchool input:checked").val() == "on" ? true : false) 
+		RadioBattonChecked(schoolType.preSchool.name, $("#radio-preSchool input:checked").val() == "on" ? true : false) 
 	});
 	$("#radio-special input").on("click", function () { 
-		RadioBattonChecked(schoolType.special, $("#radio-special input:checked").val() == "on" ? true : false) 
+		RadioBattonChecked(schoolType.special.name, $("#radio-special input:checked").val() == "on" ? true : false) 
 	});
 	$("#radio-specialSchool input").on("click", function () { 
-		RadioBattonChecked(schoolType.specialSchool, $("#radio-specialSchool input:checked").val() == "on" ? true : false) 
+		RadioBattonChecked(schoolType.specialSchool.name, $("#radio-specialSchool input:checked").val() == "on" ? true : false) 
 	});
 	$("#radio-dopYouth input").on("click", function () { 
-		RadioBattonChecked(schoolType.dopYouth, $("#radio-dopYouth input:checked").val() == "on" ? true : false)
+		RadioBattonChecked(schoolType.dopYouth.name, $("#radio-dopYouth input:checked").val() == "on" ? true : false)
 	});
 	$("#radio-dopAdult input").on("click", function () { 
-		RadioBattonChecked(schoolType.dopAdult, $("#radio-dopAdult input:checked").val() == "on" ? true : false) 
+		RadioBattonChecked(schoolType.dopAdult.name, $("#radio-dopAdult input:checked").val() == "on" ? true : false) 
 	});
 	
 

@@ -34,7 +34,9 @@ regionInfo.regionSub["InitPolygon"] = function () {
         });
         polygons[regionInfo.regionSub.name].options.set('visible', true);
         polygons[regionInfo.regionSub.name].options.set({ strokeColor: '#666633', fillOpacity: 0.2, strokeStyle: 'solid' });
-        ShowPlacemarks(regionInfo.regionSub.name);
+        map.setCenter(regionInfo.regionSub.center, regionInfo.regionSub.zoom, { duration: 400 }).then(function () {
+			ShowPlacemarks(pickRegion);
+		}, this);
         $(`#info .${regionInfo.regionSub.name}`).css("display", "block");
         $("#info").animate({ right: '0' });
     }
