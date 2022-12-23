@@ -15,9 +15,9 @@ function divideRegion(regData, regName) {
 						balloonContent: `<a href="${el.WebLink}" target="_blank">${el.name}</a>`
 					}, {
 					iconLayout: 'default#image',
-					iconImageHref: 'icons/logo.png',
+					iconImageHref: `icons/placemarks/${type.name}.png`,//'icons/placemarks/5.png',
 					iconImageSize: [30, 30],
-					iconImageOffset: [-5, -38],
+					iconImageOffset: [-15, -15],
 					visible: false,
 				});
 				placemarks[regName][type.name].push(auxPlacemark);
