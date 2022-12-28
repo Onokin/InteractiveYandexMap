@@ -28,6 +28,11 @@ const schoolType = {
     name: 'dopAdult',
     title: 'Дополнительное образование взрослых',
     isEnabled: false,
+  },
+  socPed: {
+    name: 'socPed',
+    title: 'Социально-педагогические учреждения',
+    isEnabled: false,
   }
 };
 
