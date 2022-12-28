@@ -72,27 +72,35 @@ function ResetFocus() {
 
 function ShowPlacemarks(region) { //region - string name of region
 	if (region) {
-		Object.keys(schoolType).map(key => schoolType[key]).forEach(type => {
-			placemarks[region][type.name].forEach(element => {
-				element.options.set('visible', type.isEnabled);
+		try {
+			Object.keys(schoolType).map(key => schoolType[key]).forEach(type => {
+				placemarks[region][type.name].forEach(element => {
+					element.options.set('visible', type.isEnabled);
+				});
 			});
-		});
+		} catch (error) {
+			console.log(error);
+		}
 	}
 }
 
 function ResetPlacemarks(region) { //region - string name of region
 	if (region) {
-		Object.keys(schoolType).map(key => schoolType[key]).forEach(type => {
-			placemarks[region][type.name].forEach(element => {
-				element.options.set('visible', false);
+		try {
+			Object.keys(schoolType).map(key => schoolType[key]).forEach(type => {
+				placemarks[region][type.name].forEach(element => {
+					element.options.set('visible', false);
+				});
 			});
-		});
+		} catch (error) {
+			console.log(error);
+		}
 	}
 }
 
 function ToggleTypePlaceMarks(type) { //type - object of region schoolType
+	type.isEnabled = !type.isEnabled;
 	if (pickRegion) {
-		type.isEnabled = !type.isEnabled;
 		placemarks[pickRegion][type.name].forEach(element => {
 			element.options.set('visible', type.isEnabled);
 		});

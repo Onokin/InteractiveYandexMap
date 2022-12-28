@@ -44,7 +44,7 @@ function createButton(content, image, offset){
 function initButtons(){
     let offset = 0;
 	Object.keys(schoolType).map(key => schoolType[key]).forEach(type => {
-		let aux = createButton(type.title, "icons/gears.png", offset);
+		let aux = createButton(type.title, `icons/placemarks/${type.name}.png`, offset);
 		aux.events.add("press", function(){ToggleTypePlaceMarks(type)});
 		map.controls.add(aux);
         aux.state.set('selected', type.isEnabled);
