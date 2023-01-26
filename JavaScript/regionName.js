@@ -1,8 +1,3 @@
-const regionName = {
-    berezinskiy: 'berezinskiy',
-    chervenskiy: 'borisovskiy'
-};
-
 const regionInfo = {
     "berezinskiy": {
         "name": "berezinskiy",

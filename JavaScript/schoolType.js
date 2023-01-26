@@ -33,6 +33,11 @@ const schoolType = {
     name: 'socPed',
     title: 'Социально-педагогические учреждения',
     isEnabled: false,
+  },
+  camp: {
+    name: 'camp',
+    title: 'Лагеря',
+    isEnabled: false,
   }
 };
 

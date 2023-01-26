@@ -1,7 +1,8 @@
 ymaps.ready(function () {
 
 	$('#info-close').click(function () {
-		$('#info').animate({ right: '-1000' });
+		//$('#info').animate({ right: '-1000' });
+		$('#info').animate({ width: '0px' });
 		ResetFocus();
 		map.setCenter(
 			[27.525773, 53.89079],
@@ -54,8 +55,9 @@ function FocusOnRegion(region) {
 		map.setCenter(region.center, region.zoom, { duration: 400 }).then(function () {
 			ShowPlacemarks(pickRegion);
 		}, this);
+		//$("#info").animate({ right: '0' });
 		$(`#info .${region.name}`).css("display", "block");
-		$("#info").animate({ right: '0' });
+		$('#info').animate({ width: '300px' });
 	}
 }
 
@@ -101,9 +103,11 @@ function ResetPlacemarks(region) { //region - string name of region
 function ToggleTypePlaceMarks(type) { //type - object of region schoolType
 	type.isEnabled = !type.isEnabled;
 	if (pickRegion) {
-		placemarks[pickRegion][type.name].forEach(element => {
-			element.options.set('visible', type.isEnabled);
-		});
+		if (placemarks[pickRegion][type.name]) {
+			placemarks[pickRegion][type.name].forEach(element => {
+				element.options.set('visible', type.isEnabled);
+			});
+		}
 	}
 }
 

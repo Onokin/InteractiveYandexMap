@@ -30,11 +30,6 @@ function createButton(content, image, offset){
         options: {
             layout: ButtonLayout,
             selectOnClick: true,
-            // У кнопки будет три состояния: иконка, текст и текст + иконка.
-            // Зададим три значения ширины кнопки для всех состояний.
-            //maxWidth: [5, 300, 10],
-            //float: 'left', 
-            //floatIndex: 10,
             position: {left: '40px', top: `${offset + 45}px`}
         }
     });

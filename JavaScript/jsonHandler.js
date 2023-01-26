@@ -1,5 +1,4 @@
 function loadJSON(callback) {
-
     var xobj = new XMLHttpRequest();
     xobj.overrideMimeType("application/json");
     xobj.open('GET', 'https://new.moiro.by/json/mapData.json', true);

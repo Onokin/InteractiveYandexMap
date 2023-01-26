@@ -63,9 +63,6 @@ function AddInfo(region) {
         </div>
     </div>`;
 }
-    // Object.keys(regionInfo).map(key => regionInfo[key]).forEach(regObj => {
-    //     divideRegion(data[regObj.name], regObj.name);
-    //     
-    // });
+
 
 
