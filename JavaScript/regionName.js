@@ -281,7 +281,7 @@ const regionInfo = {
         "name": "soligorskiy",
         "districtName": "Солигорский район",
         "regionalDeclension": "Солигорском",
-        "mainLink" : "http://edusoligorsk.by/",
+        "mainLink" : "https://edus.by/",
         "fullName" : "Управление по образованию Солигорского районного исполнительного комитета",
         "address" : "223710, г. Солигорск, ул. Козлова, 35",
         "phone": "+375 (17) 423-77-91",
