@@ -36,7 +36,7 @@ const schoolType = {
   },
   camp: {
     name: 'camp',
-    title: 'Лагеря',
+    title: 'Оздоровительные лагеря',
     isEnabled: false,
   }
 };
