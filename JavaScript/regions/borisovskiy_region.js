@@ -20,7 +20,10 @@ regionInfo.borisovskiy["InitPolygon"] = function () {
 		strokeStyle: 'shortdash'
 	});
 
+
+
 	function loadBorisovPlacemarks() {
+		init_borisov();
 		try {
 			placemarks[regionInfo.borisovskiy.name][schoolType.preSchool.name] = borisov_preSchool;
 			placemarks[regionInfo.borisovskiy.name][schoolType.school.name] = borisov_school;
@@ -39,7 +42,11 @@ regionInfo.borisovskiy["InitPolygon"] = function () {
 			data[regionInfo.borisovskiy.name].stats.dopAdult = borisov_stats.dopAdult;
 			data[regionInfo.borisovskiy.name].stats.socPed = borisov_stats.socPed;
 			data[regionInfo.borisovskiy.name].stats.camp = borisov_stats.camp;
-			
+
+			borisov_preSchool.forEach((x) => {
+				x.options.set('zIndex',1000);
+			});
+
 			Object.keys(schoolType).map(key => schoolType[key]).forEach(type => {
 				try {
 					placemarks[regionInfo.borisovskiy.name][type.name].forEach(x => {
@@ -52,8 +59,24 @@ regionInfo.borisovskiy["InitPolygon"] = function () {
 			});
 		} catch (error) {
 			console.log("Borisov_Empty");
-			setTimeout(() => {loadBorisovPlacemarks();}, 1000);
+			console.log(error);
 		}
+	}
+
+	function realoadscript(){
+		console.log("script reloading");
+		let scriptEle = document.createElement("script");
+		scriptEle.setAttribute("src", "https://cdn.rooborisov.by/scripts/borisov_point.js");
+		scriptEle.setAttribute("type", "text/javascript");
+		document.body.appendChild(scriptEle);
+		scriptEle.addEventListener("load", () => {
+			console.log("File loaded")
+			loadBorisovPlacemarks();
+		});
+		
+		scriptEle.addEventListener("error", (ev) => {
+			console.log("Error on loading file", ev);
+		});
 	}
 
 	function AddInfoBorisovskiy(region) {
