@@ -23,7 +23,12 @@ regionInfo.borisovskiy["InitPolygon"] = function () {
 
 
 	function loadBorisovPlacemarks() {
-		init_borisov();
+		if (typeof init_borisov === 'function'){
+			init_borisov();
+		}
+		else{
+			return;
+		}
 		try {
 			placemarks[regionInfo.borisovskiy.name][schoolType.preSchool.name] = borisov_preSchool;
 			placemarks[regionInfo.borisovskiy.name][schoolType.school.name] = borisov_school;
