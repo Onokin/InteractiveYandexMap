@@ -1,3 +1,11 @@
+function formateDate(date){
+	var day = '01';//date.setDate(1);//.getDate();
+	//if (day < 10) day = '0' + day;
+	var month = date.getMonth() + 1;
+	if (month < 10) month = '0' + month;
+	var year = date.getFullYear();
+	return day + '.' + month + '.' + year;;
+}
 function divideRegion(regData, regName) {
 	placemarks[regName] = {};
 	if (regionInfo[regName].LoadPlacemarks) { //check on custom loading method
@@ -9,16 +17,39 @@ function divideRegion(regData, regName) {
 		if (!regData) { return; }
 		if (regData[type.name]) {
 			regData[type.name].forEach(el => {
+				let group;
+				if(type.name === schoolType.preSchool.name)
+				{
+					group = el.Group.length < 1 ? 
+					`Информация о свободных местах находится <a href="${el.WebLink}" target="_blank">ЗДЕСЬ</a>` : 
+					`Свободные места в группах для детей дошкольного возраста на ${formateDate(new Date(el.Date_reg))}: <br>
+					<ul>
+						<li>${el.Group.replaceAll('\n', " <br> <li>")} <br>
+					</ul>`;
+				}
 				auxPlacemark = new ymaps.Placemark([el.Longitude, el.Latitude],
 					{
 						hintContent: el.name,
-						balloonContent: `<a href="${el.WebLink}" target="_blank">${el.name}</a>`
+						//balloonContent: `<a href="${el.WebLink}" target="_blank">${el.name}</a>`,
+						balloonContentHeader: el.name,
+						balloonContentBody: `<div> 
+						Адрес:  ${el.Address} <br>
+						Сайт: <a href="${el.WebLink}" target="_blank">"Перейти на сайт"</a> <br>
+						Телефон: <a href="tel:${el.Phone}">${el.Phone}</a><br> 
+						${typeof group !== 'undefined' && group !== null ? group : ''}
+						</div>`,
+						//balloonContentFooter: `${el.Longitude}, ${el.Latitude}`,
+						iconContent: ''
 					}, {
-					iconLayout: 'default#image',
+					//iconLayout: 'default#image', 
+					//balloonContentLayout: BalloonContentLayout,
+					iconLayout: 'default#imageWithContent',
 					iconImageHref: `icons/placemarks/${type.name}.png`,//'icons/placemarks/5.png',
 					iconImageSize: [30, 30],
 					iconImageOffset: [-15, -15],
+					iconContentOffset: [8, 10],
 					visible: false,
+					//iconContentLayout: MyIconContentLayout
 				});
 				placemarks[regName][type.name].push(auxPlacemark);
 				map.geoObjects.add(auxPlacemark);
