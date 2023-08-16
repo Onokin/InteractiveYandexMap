@@ -232,7 +232,10 @@ body,
 	color: #333333;
 	background-color: #4ff04f;
 }
-
+.tab {
+    display: inline-block;
+    margin-left: 1em;
+}
 /* --------------------------------------- */
 
 /* Cover */
